@@ -1,0 +1,160 @@
+{
+    "Navber": {
+        "home": "Home",
+        "about": "About",
+        "product": "Product",
+        "contact": "Contact"
+    },
+    "HomePage": {
+        "title": "Our Info",
+        "greeting": "Hello, Welcome!",
+        "carouselCaption": {
+            "first": "You're watching <1>{{channel}}</1> YouTube Channel",
+            "second": "This is an Internationalisation Tutorial",
+            "third": "This is an Internationalisation Tutorial"
+        },
+        "about": "Hello guys, here you will get many categories of products.",
+        "ourInfo": "Welcome to our expert carpentry services! With years of experience, we specialize in crafting high-quality, custom woodwork that transforms your space. From bespoke furniture to intricate cabinetry and home renovations, our skilled carpenters are dedicated to excellence and attention to detail. We use the finest materials and modern techniques to ensure durability and aesthetic appeal. Whether it's a small repair or a large-scale project, we are committed to delivering outstanding results that exceed your expectations. Contact us today to bring your vision to life with our exceptional carpentry craftsmanship."
+    },
+    "AboutPage": {
+        "name": "Bhagwan Pagare",
+        "profession": "Master Carpenter",
+        "phone": "+91 8600860102",
+        "title": "About Us",
+        "experience": "With over 20 years of experience in carpentry, I have honed my skills in crafting high-quality wooden structures and furniture. My dedication to detail and passion for woodworking ensure that every project I undertake is completed to the highest standards.",
+        "services": "From custom furniture to home renovations, I take pride in bringing my clients' visions to life. Let's work together to create something beautiful and lasting.",
+        "Cards": {
+            "card1Title": "Custom Furniture",
+            "card1Discription": "I specialize in creating custom furniture pieces that are both functional and beautiful. Each piece is crafted with precision and care.",
+            "card2Title": "Home Renovations",
+            "card2Discription": "Transform your home with my expert carpentry services. From kitchens to basements, I can help you achieve your dream home.",
+            "card3Title": "Woodworking Projects",
+            "card3Discription": "Whether it's a small repair or a large-scale project, I approach every job with the same level of dedication and expertise.",
+            "card4Title": "Consultation",
+            "card4Discription": "I offer consultation services to help you plan and execute your carpentry projects effectively, ensuring quality results.",
+            "card5Title": "Repair Services",
+            "card5Discription": "I offer consultation services to help you plan and execute your carpentry projects effectively, ensuring quality results.",
+            "card6Title": "Maintenance",
+            "card6Discription": "Regular maintenance ensures longevity and durability. I offer maintenance services for all types of wooden structures and furniture."
+        }
+    },
+    "ContactPage": {
+        "title": "Contact Us",
+        "name": "Name",
+        "email": "E-mail",
+        "message": "Message",
+        "sendMsg": "Send Message"
+    },
+    "ProductPage": {
+        "title": "Shopping Cart",
+        "total": "total",
+        "remove": "remove",
+        "rupeelogo": "$",
+        "ProductNav": {
+            "All": "All",
+            "Tables": "Table",
+            "Chairs": "Chair",
+            "Beds": "Beds",
+            "Shopping": "MyShopping"
+        }
+    },
+    "FooterPage": {
+        "titles": {
+            "about": "About Us",
+            "contact": "Contact Us",
+            "services": "Services",
+            "newsletter": "Newsletter",
+            "follow": "Follow Us"
+        },
+        "footerDiscription": {
+            "aboutDisc": "We are dedicated carpenters providing top-notch woodworking services for over 20 years.",
+            "contactDisc": "Email: contact@carpenters.com Phone: (123) 456-7890",
+            "servicesDisc": "Custom Furniture Home Renovations Deck Building",
+            "newsletter": "Subscribe to our newsletter for the latest updates.",
+            "follow": "2024 Carpenters. All rights reserved."
+        },
+        "input": {
+            "placeHolder": "Enter your email",
+            "btn": "Subscribe"
+        }
+    },
+    "ProductList": [
+        {
+            "id": 1,
+            "Product": "Wooden Dining Table",
+            "img": "CartLogo",
+            "price": 299.99,
+            "category": {
+                "en": "Table",
+                "mr": "टेबल"
+            },
+            "rating": 4.5,
+            "description": "A beautifully crafted wooden dining table perfect for family meals.",
+            "images": [
+                "CartLogo",
+                "CartLogo",
+                "CartLogo"
+            ]
+        },
+        {
+            "id": 2,
+            "Product": "Oak Armchair",
+            "img": "images/armchair.jpg",
+            "price": 149.99,
+            "category": {
+                "en": "Chair",
+                "mr": "खुर्ची"
+            },
+            "rating": 4.7,
+            "description": "An elegant oak armchair that provides both comfort and style.",
+            "images": [
+                "images/armchair.jpg"
+            ]
+        },
+        {
+            "id": 3,
+            "Product": "King Size Bed",
+            "img": "images/king_size_bed.jpg",
+            "price": 499.99,
+            "category": {
+                "en": "Bed",
+                "mr": "बेड"
+            },
+            "rating": 4.8,
+            "description": "A spacious king-size bed made from high-quality wood for a luxurious sleep.",
+            "images": [
+                "images/king_size_bed.jpg"
+            ]
+        },
+        {
+            "id": 4,
+            "Product": "Coffee Table",
+            "img": "images/coffee_table.jpg",
+            "price": 89.99,
+            "category": {
+                "en": "Table",
+                "mr": "टेबल"
+            },
+            "rating": 4.3,
+            "description": "A sleek and modern coffee table that fits perfectly in any living room.",
+            "images": [
+                "images/coffee_table.jpg"
+            ]
+        },
+        {
+            "id": 5,
+            "Product": "Bunk Bed",
+            "img": "images/bunk_bed.jpg",
+            "price": 399.99,
+            "category": {
+                "en": "Bed",
+                "mr": "बेड"
+            },
+            "rating": 4.6,
+            "description": "A sturdy and space-saving bunk bed ideal for kids' rooms.",
+            "images": [
+                "images/bunk_bed.jpg"
+            ]
+        }
+    ]
+}
