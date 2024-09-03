@@ -15,8 +15,11 @@ function Home() {
     return (
         <>
 
-            <div className="flex fixed top-0 left-0 right-0  p-2 header   h-14" style={{ backgroundColor: 'rgba(255, 255, 255, 0.3)', backdropFilter: 'blur(1px)' }}>
+
+
+            <div className="flex fixed top-0 left-0 right-0  p-2 header   h-14 bg-black bg-opacity-50">
                 <img src={logo} alt="Logo" className="logo ml-2 rounded-full" />
+
 
 
 
@@ -30,7 +33,6 @@ function Home() {
                     </span>
 
                     <span className='md:block ml-auto mr-2 mt-1'>
-
                         <ToggleButton />
                     </span>
 
@@ -38,6 +40,11 @@ function Home() {
                 </div>
 
             </div>
+
+
+
+
+
 
             {/* <LanguageSelector /> */}
 

@@ -1,34 +1,3 @@
-// import React, { useState } from 'react';
-
-// const ProductList = ({ products, shopping, toggleCart }) => {
-//     const [selectedProduct, setSelectedProduct] = useState(null);
-
-//     const getStars = (rating) => {
-//         return '★'.repeat(Math.round(rating)) + '☆'.repeat(5 - Math.round(rating));
-//     };
-
-//     const truncateText = (text) => {
-//         return text.length > 250 ? text.substring(0, 247) + '...' : text;
-//     };
-
-//     return (
-//         <div>
-
-//             {products.map(product => (
-
-//                 <div key={product.id} >
-//                     {/* Render your product here, for example */}
-//                     <p>{product.Product}</p>
-//                 </div>
-
-//             ))}
-
-//         </div>
-//     );
-// };
-
-// export default ProductList;
-
 
 
 
@@ -51,11 +20,11 @@ const ProductList = ({ products, shopping, toggleCart }) => {
     return (
         <div>
             {products.map(product => (
-                <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden">
+                <div key={product.id} className="bg-white shadow-md overflow-hidden text-gray-400">
                     <img className="w-full h-48 object-cover" src={product.img} alt={product.Product} />
                     <div className="p-4">
                         <h3 className="text-lg font-semibold">{product.Product}</h3>
-                        <p className="text-gray-600">{truncateText(product.description)}</p>
+                        <p className="text-gray-400">{truncateText(product.description)}</p>
                         <div className="flex items-center justify-between mt-2">
                             <div className="text-orange-500 font-bold">${product.price}</div>
                             <div className="flex items-center">
