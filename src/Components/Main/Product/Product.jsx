@@ -91,12 +91,12 @@ function DemoProduct() {
         return (
             <>
                 {Array(filledStars).fill().map((_, i) => (
-                    <svg key={i} className="w-4 h-4 text-yellow-500 inline" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <svg key={i} className="inline w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.973a1 1 0 00.95.69h4.178c.969 0 1.371 1.24.588 1.81l-3.39 2.46a1 1 0 00-.364 1.118l1.287 3.973c.3.921-.755 1.688-1.539 1.118l-3.39-2.46a1 1 0 00-1.175 0l-3.39 2.46c-.784.57-1.838-.197-1.539-1.118l1.287-3.973a1 1 0 00-.364-1.118L2.236 9.4c-.783-.57-.38-1.81.588-1.81h4.178a1 1 0 00.95-.69l1.286-3.973z" />
                     </svg>
                 ))}
                 {Array(emptyStars).fill().map((_, i) => (
-                    <svg key={i + filledStars} className="w-4 h-4 text-gray-300 inline" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <svg key={i + filledStars} className="inline w-4 h-4 text-gray-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.973a1 1 0 00.95.69h4.178c.969 0 1.371 1.24.588 1.81l-3.39 2.46a1 1 0 00-.364 1.118l1.287 3.973c.3.921-.755 1.688-1.539 1.118l-3.39-2.46a1 1 0 00-1.175 0l-3.39-2.46c-.784.57-1.838-.197-1.539-1.118l1.287-3.973a1 1 0 00-.364-1.118L2.236 9.4c-.783-.57-.38-1.81.588-1.81h4.178a1 1 0 00.95-.69l1.286-3.973z" />
                     </svg>
                 ))}
@@ -135,9 +135,9 @@ function DemoProduct() {
 
     return (
 
-        <div className='container mx-auto p-4 mt-10'>
+        <div className='container p-4 mx-auto mt-10'>
 
-            <div className="flex justify-center font-bold items-center flex-wrap gap-4 mb-6">
+            <div className="flex flex-wrap items-center justify-center gap-4 mb-6 font-bold">
                 <button
                     className={`px-4 py-2 rounded ${selectedCategory === 'all' ? ' text-orange-700 ' : ''}`}
                     onClick={() => handleCategoryChange('all')}
@@ -176,17 +176,17 @@ function DemoProduct() {
 
 
             {filteredProducts.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 cursor-pointer">
+                <div className="grid grid-cols-1 gap-4 cursor-pointer sm:grid-cols-2 md:grid-cols-3">
 
                     {filteredProducts.map(product => (
                         <div
                             key={product.id}
-                            className="bg-white rounded-lg shadow-md overflow-hidden"
+                            className="overflow-hidden bg-white rounded-lg shadow-md"
                             data-aos="fade-up"
                             onClick={() => setSelectedProduct(product)}
                         >
                             <img
-                                className="w-full h-48 object-cover"
+                                className="object-cover w-full h-48"
                                 src={imageError[product.id] ? CartLogo : product.img}
                                 // src={product.img}
 
@@ -197,7 +197,7 @@ function DemoProduct() {
                                 <h3 className="text-lg font-semibold">{product.Product}</h3>
                                 <p className="text-gray-600">{truncateText(product.description, 50)}</p>
                                 <div className="flex items-center justify-between mt-2">
-                                    <div className="text-orange-500 font-bold">
+                                    <div className="font-bold text-orange-500">
                                         {rupeelogo} {product.price}
                                     </div>
                                     <div className="flex items-center">
@@ -205,7 +205,7 @@ function DemoProduct() {
                                     </div>
                                 </div>
                                 <button
-                                    className="bg-orange-500 text-white px-4 py-2 mt-4 rounded"
+                                    className="px-4 py-2 mt-4 text-white bg-orange-500 rounded"
                                     onClick={(e) => {
                                         e.stopPropagation();
                                         toggleCart(product);
@@ -229,32 +229,32 @@ function DemoProduct() {
 
 
             {selectedProduct && (
-                <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
-                    <div className="bg-white rounded-lg shadow-md p-6 w-11/12 sm:w-3/4 md:w-1/2 lg:w-1/3">
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-600 bg-opacity-50">
+                    <div className="w-11/12 p-6 bg-white rounded-lg shadow-md sm:w-3/4 md:w-1/2 lg:w-1/3">
                         <button
-                            className="text-gray-500 hover:text-gray-700 float-right"
+                            className="float-right text-gray-500 hover:text-gray-700"
                             onClick={() => setSelectedProduct(null)}
                         >
                             &times;
                         </button>
                         <img
-                            className="w-full h-48 object-cover mb-4"
+                            className="object-cover w-full h-48 mb-4"
                             src={imageError[selectedProduct.id] ? CartLogo : selectedProduct.img}
                             // src={selectedProduct.img}
 
                             alt={selectedProduct.Product}
                             onError={() => handleImageError(selectedProduct.id)}
                         />
-                        <h3 className="text-lg font-semibold mb-2">{selectedProduct.Product}</h3>
-                        <p className="text-gray-600 mb-2">{selectedProduct.description} </p>
-                        <div className="text-orange-500 font-bold mb-2">
+                        <h3 className="mb-2 text-lg font-semibold">{selectedProduct.Product}</h3>
+                        <p className="mb-2 text-gray-600">{selectedProduct.description} </p>
+                        <div className="mb-2 font-bold text-orange-500">
                             {rupeelogo} {selectedProduct.price}
                         </div>
                         <div className="flex items-center mb-2">
                             {getStars(selectedProduct.rating)}
                         </div>
                         <button
-                            className="bg-orange-500 text-white px-4 py-2 mt-4 rounded"
+                            className="px-4 py-2 mt-4 text-white bg-orange-500 rounded"
                             onClick={() => {
                                 toggleCart(selectedProduct);
                                 setSelectedProduct(null);
@@ -268,16 +268,17 @@ function DemoProduct() {
 
             {selectedCategory === 'shopping' && (
                 <div className="mt-10">
-                    <h2 className="text-2xl font-bold mb-4">{title}</h2>
+                    <h2 className="mb-4 text-2xl font-bold">{title}</h2>
                     {shopping.length === 0 ? (
                         <p>{t('Product is not  buy yet')}</p>
                     ) : (
-                        <div className=" rounded-lg shadow-md p-4">
+                        <div className="p-4 rounded-lg shadow-md ">
                             <ul>
                                 {shopping.map(item => (
-                                    <li key={item.id} className="flex justify-between items-center py-2 border-b">
+
+                                    <li key={item.id} className="flex items-center justify-between py-2 border-b">
                                         <div className="flex items-center">
-                                            <img className="w-12 h-12 object-cover mr-4"
+                                            <img className="object-cover w-12 h-12 mr-4"
                                                 src={imageError[item.id] ? CartLogo : selectedProduct.img} alt={item.Product} />
                                             {/* src={item.img} /> */}
 
@@ -288,20 +289,20 @@ function DemoProduct() {
                                         </div>
                                         <div className="flex items-center">
                                             <button
-                                                className="bg-gray-300 text-gray-700 px-2 py-1 rounded"
+                                                className="px-2 py-1 text-gray-700 bg-gray-300 rounded"
                                                 onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
                                             >
                                                 -
                                             </button>
                                             <span className="mx-2">{item.quantity}</span>
                                             <button
-                                                className="bg-gray-300 text-gray-700 px-2 py-1 rounded"
+                                                className="px-2 py-1 text-gray-700 bg-gray-300 rounded"
                                                 onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
                                             >
                                                 +
                                             </button>
                                             <button
-                                                className="bg-red-500 text-white px-2 py-1 rounded ml-2"
+                                                className="px-2 py-1 ml-2 text-white bg-red-500 rounded"
                                                 onClick={() => removeFromCart(item.id)}
                                             >
                                                 {remove}
@@ -310,7 +311,7 @@ function DemoProduct() {
                                     </li>
                                 ))}
                             </ul>
-                            <div className="mt-4 flex justify-between">
+                            <div className="flex justify-between mt-4">
                                 <span className="font-bold">{total}:</span>
                                 <span className="font-bold">{rupeelogo} {getTotalAmount()}</span>
                             </div>

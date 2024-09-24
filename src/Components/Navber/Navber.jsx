@@ -10,7 +10,7 @@ import AOS from 'aos';
 const Sidebar = () => {
 
     const { t } = useTranslation()
-    const {home , about , product , contact} = t("Navber")
+    const { home, about, product, contact } = t("Navber")
 
     useEffect(() => {
         AOS.init({
@@ -23,9 +23,9 @@ const Sidebar = () => {
         <>
             {/* For Big Screen */}
 
-            <div className=' hidden  md:block container mx-auto fixed bottom-10 left-0 right-0 z-10 rounded-b-2xl'>
-                <nav className='drop-shadow-md p-1 ' style={{ backgroundColor: 'rgba(255, 255, 255, 0.3)', backdropFilter: 'blur(1px)' }}>
-                    <ul className='flex justify-center space-x-20 text-center text-1xl text-gray-900'>
+            <div className='container fixed left-0 right-0 z-10 hidden mx-auto md:block bottom-10 rounded-b-2xl'>
+                <nav className='p-1 drop-shadow-md ' style={{ backgroundColor: 'rgba(255, 255, 255, 0.3)', backdropFilter: 'blur(1px)' }}>
+                    <ul className='flex justify-center space-x-20 text-center text-gray-900 text-1xl'>
                         <li className="my-2 " title='Home'>
                             <Link to="/" className="flex flex-col items-center mr-10">
                                 <i className="bx bx-home-alt nav__icon"></i>
@@ -57,9 +57,8 @@ const Sidebar = () => {
 
             {/* For Small Screen */}
 
-            <nav className='md:hidden flex fixed bottom-0 left-0 right-0 md:static  rounded-t-3xl md:left-auto md:right-auto md:top-0 md:w-16  drop-shadow-md p-2 md:min-h-screen text-teal-900' style={{ backgroundColor: 'rgba(255, 255, 255, 0.3)', backdropFilter: 'blur(1px)' }}>
-
-                <ul className='flex md:flex-col justify-around w-full md:w-auto mt-0 md:mt-16 text-center md:pt-10 text-2xl text-gray-900'>
+            <nav className='fixed bottom-0 left-0 right-0 flex p-2 text-teal-900 md:hidden md:static rounded-t-3xl md:left-auto md:right-auto md:top-0 md:w-16 drop-shadow-md md:min-h-screen' style={{ backgroundColor: 'rgba(255, 255, 255, 0.3)', backdropFilter: 'blur(1px)' }}>
+                <ul className='flex justify-around w-full mt-0 text-2xl text-center text-gray-900 md:flex-col md:w-auto md:mt-16 md:pt-10'>
                     <li className="my-2" title='Home'>
                         <Link to="/" className="">
                             <i className="bx bx-home-alt nav__icon"></i>
@@ -84,10 +83,11 @@ const Sidebar = () => {
                             <span className="nav__name"></span>
                         </Link>
                     </li>
+                    
                     {/* <li className="my-2"><ToggleButton /></li> */}
                 </ul>
             </nav>
-
+            
         </>
     );
 };

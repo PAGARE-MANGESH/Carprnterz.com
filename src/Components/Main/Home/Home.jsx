@@ -32,21 +32,21 @@ const CarpenterHome = () => {
         <div className="flex flex-col md:flex-row md:items-start">
           {/* <img
             src={AboutLogo}
-            className="md:w-1/3 mb-3  mr-20 md:mb-0 md:ml-3 w-full h-96  object-cover"
+            className="object-cover w-full mb-3 mr-20 md:w-1/3 md:mb-0 md:ml-3 h-96"
             alt="Carpenter at work"
           /> */}
-          <div className='md:mr-24 md:mt-24 mb-24 '>
+          <div className='mb-24 md:mr-24 md:mt-24 '>
 
             <Animation />
             {/* <Cube /> */}
           </div>
 
-          <div className="flex-1 ml-20 text-2xl mr-10 ">
+          <div className="flex-1 ml-20 mr-10 text-2xl ">
             <strong> {t('HomePage.title')} </strong>
             <p className='mt-2 tracking-widest '>
-            {t('HomePage.ourInfo')}
+              {t('HomePage.ourInfo')}
             </p>
-            {/* <p className="mb-4 mt-4">
+            {/* <p className="mt-4 mb-4">
               Carpenters are skilled craftsmen who work with wood to create various structures, furniture, and other objects. They play a crucial role in construction, ensuring that buildings and other projects are built to last with precision and quality.
             </p>
             <p className="mb-4">
@@ -64,3 +64,5 @@ const CarpenterHome = () => {
 };
 
 export default CarpenterHome;
+
+
