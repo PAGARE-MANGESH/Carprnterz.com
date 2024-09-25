@@ -20,19 +20,19 @@ const ProductList = ({ products, shopping, toggleCart }) => {
     return (
         <div>
             {products.map(product => (
-                <div key={product.id} className="bg-white shadow-md overflow-hidden text-gray-400">
-                    <img className="w-full h-48 object-cover" src={product.img} alt={product.Product} />
+                <div key={product.id} className="overflow-hidden text-gray-400 bg-white shadow-md">
+                    <img className="object-cover w-full h-48" src={product.img} alt={product.Product} />
                     <div className="p-4">
                         <h3 className="text-lg font-semibold">{product.Product}</h3>
                         <p className="text-gray-400">{truncateText(product.description)}</p>
                         <div className="flex items-center justify-between mt-2">
-                            <div className="text-orange-500 font-bold">${product.price}</div>
+                            <div className="font-bold text-orange-500">${product.price}</div>
                             <div className="flex items-center">
                                 {getStars(product.rating)}
                             </div>
                         </div>
                         <button
-                            className="bg-orange-500 text-white px-4 py-2 mt-4 rounded"
+                            className="px-4 py-2 mt-4 text-white bg-orange-500 rounded"
                             onClick={() => toggleCart(product)}
                         >
                             {shopping.some(p => p.id === product.id) ? 'Remove from Cart' : 'Add to Cart'}
@@ -45,3 +45,8 @@ const ProductList = ({ products, shopping, toggleCart }) => {
 };
 
 export default ProductList;
+
+
+
+
+

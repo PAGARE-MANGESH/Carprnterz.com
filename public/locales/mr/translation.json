@@ -78,11 +78,13 @@
       "btn": "सदस्यता घ्या"
     }
   },
+
   "ProductList": [
     {
       "id": 1,
       "Product": "लाकडी जेवणाचे टेबल",
-      "img": "images/wooden_dining_table.jpg",
+      "img": "../../../src/assets/ProductImges/WDininerTable.jfif",
+
       "price": 299.99,
       "category": {
         "en": "Table",
@@ -99,7 +101,7 @@
     {
       "id": 2,
       "Product": "ओक आर्मचेअर",
-      "img": "images/armchair.jpg",
+      "img": "../../../src/assets/ProductImges/Chir1.jfif",
       "price": 149.99,
       "category": {
         "en": "Chair",
@@ -112,7 +114,8 @@
     {
       "id": 3,
       "Product": "किंग साईज बेड",
-      "img": "images/king_size_bed.jpg",
+      "img": "../../../src/assets/ProductImges/Bed1.jfif",
+
       "price": 499.99,
       "category": {
         "en": "Bed",
@@ -125,7 +128,8 @@
     {
       "id": 4,
       "Product": "कॉफी टेबल",
-      "img": "images/coffee_table.jpg",
+      "img": "../../../src/assets/ProductImges/CoffeTble.jfif",
+
       "price": 89.99,
       "category": {
         "en": "Table",
@@ -138,7 +142,7 @@
     {
       "id": 5,
       "Product": "बंक बेड",
-      "img": "images/bunk_bed.jpg",
+      "img": "../../../src/assets/ProductImges/BunkBed1.jfif",
       "price": 399.99,
       "category": {
         "en": "Bed",

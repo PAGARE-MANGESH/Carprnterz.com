@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import App from './Rounting.jsx'
 import './index.css'
 
 import './MultipleLang/i18n.js'

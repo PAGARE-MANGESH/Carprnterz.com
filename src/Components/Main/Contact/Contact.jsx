@@ -8,8 +8,8 @@ const Contact = () => {
     const { title, name, email, message, sendMsg } = t("ContactPage")
 
     return (
-        <div className="text-center mb-8 m-4">
-            <h2 className="text-2xl font-bold mb-4 "> {title} </h2>
+        <div className="p-2 mt-16 mb-8 text-center">
+            <h2 className="mb-4 text-2xl font-bold text-gray-600 "> {title} </h2>
 
             <div className="mt-5 mb-5 sm:mt-0" data-aos="fade-right" data-aos-delay="800">
 
@@ -26,13 +26,13 @@ const Contact = () => {
 
             </div>
 
-            <form className=" max-w-md mx-auto drop-shadow-md text-gray-800 ">
+            <form className="max-w-md mx-auto text-gray-800 drop-shadow-md">
                 <div className="mb-4">
 
                     <input
                         type="text"
                         placeholder={name}
-                        className="w-full p-2 border rounded-lg text-center"
+                        className="w-full p-2 text-center border rounded-lg"
                         required
                     />
 
@@ -41,21 +41,21 @@ const Contact = () => {
                     <input
                         type="email"
                         placeholder={email}
-                        className="w-full p-2 border rounded-lg text-center"
+                        className="w-full p-2 text-center border rounded-lg"
                         required
                     />
                 </div>
                 <div className="mb-4">
                     <textarea
                         placeholder={message}
-                        className="w-full p-2 border rounded-lg text-center"
+                        className="w-full p-2 text-center border rounded-lg"
                         rows="4"
                         required
                     ></textarea>
                 </div>
                 <button
                     type="submit"
-                    className="w-full p-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 "
+                    className="w-full p-2 text-white bg-gray-500 rounded-lg hover:bg-gray-600 "
                 >
                     {sendMsg}
                 </button>

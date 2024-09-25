@@ -4,6 +4,8 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
+// import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 
@@ -12,12 +14,16 @@ const Sidebar = () => {
     const { t } = useTranslation()
     const { home, about, product, contact } = t("Navber")
 
+
     useEffect(() => {
         AOS.init({
             duration: 800,
             easing: 'ease-in-out',
         });
     }, []);
+
+
+   
 
     return (
         <>
@@ -83,11 +89,11 @@ const Sidebar = () => {
                             <span className="nav__name"></span>
                         </Link>
                     </li>
-                    
+
                     {/* <li className="my-2"><ToggleButton /></li> */}
                 </ul>
             </nav>
-            
+
         </>
     );
 };

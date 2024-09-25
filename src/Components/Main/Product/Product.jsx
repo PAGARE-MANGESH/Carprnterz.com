@@ -4,7 +4,7 @@
 
 
 import React, { useState, useEffect } from 'react';
-import CartLogo from '../../../assets/react.svg';
+// import CartLogo from '../../../assets/react.svg';
 import { FaBell } from 'react-icons/fa';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
@@ -17,7 +17,6 @@ function DemoProduct() {
     const { t } = useTranslation();
     const { All, Tables, Chairs, Beds, Shopping } = t("ProductPage.ProductNav");
     const Items = t('ProductList');
-    const ProductImg = t('ProductList.img');
 
     const { rupeelogo, total, title, remove } = t("ProductPage");
     const [products, setProducts] = useState([]);
@@ -187,7 +186,7 @@ function DemoProduct() {
                         >
                             <img
                                 className="object-cover w-full h-48"
-                                src={imageError[product.id] ? CartLogo : product.img}
+                                src={imageError[product.id] ? '' : product.img}
                                 // src={product.img}
 
                                 alt={product.Product}
@@ -225,10 +224,8 @@ function DemoProduct() {
 
 
 
+            {/* {selectedProduct && selectedProduct.img ? (
 
-
-
-            {selectedProduct && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-600 bg-opacity-50">
                     <div className="w-11/12 p-6 bg-white rounded-lg shadow-md sm:w-3/4 md:w-1/2 lg:w-1/3">
                         <button
@@ -239,7 +236,7 @@ function DemoProduct() {
                         </button>
                         <img
                             className="object-cover w-full h-48 mb-4"
-                            src={imageError[selectedProduct.id] ? CartLogo : selectedProduct.img}
+                            src={imageError[selectedProduct.id] ? "" : selectedProduct.img}
                             // src={selectedProduct.img}
 
                             alt={selectedProduct.Product}
@@ -264,7 +261,10 @@ function DemoProduct() {
                         </button>
                     </div>
                 </div>
-            )}
+            ) : null} */}
+
+
+
 
             {selectedCategory === 'shopping' && (
                 <div className="mt-10">
@@ -279,7 +279,7 @@ function DemoProduct() {
                                     <li key={item.id} className="flex items-center justify-between py-2 border-b">
                                         <div className="flex items-center">
                                             <img className="object-cover w-12 h-12 mr-4"
-                                                src={imageError[item.id] ? CartLogo : selectedProduct.img} alt={item.Product} />
+                                                src={imageError[item.id] ? '' : selectedProduct.img} alt={item.Product} />
                                             {/* src={item.img} /> */}
 
                                             <div>
@@ -321,9 +321,11 @@ function DemoProduct() {
             )}
 
 
-
         </div>
+
     );
 }
 
 export default DemoProduct;
+
+
