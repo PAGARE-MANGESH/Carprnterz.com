@@ -223,33 +223,38 @@ function DemoProduct() {
             )}
 
 
-
-            {/* {selectedProduct && selectedProduct.img ? (
-
+            {selectedProduct && selectedProduct.img ? (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-600 bg-opacity-50">
                     <div className="w-11/12 p-6 bg-white rounded-lg shadow-md sm:w-3/4 md:w-1/2 lg:w-1/3">
+                        {/* Close Button */}
                         <button
                             className="float-right text-gray-500 hover:text-gray-700"
                             onClick={() => setSelectedProduct(null)}
                         >
                             &times;
                         </button>
+
+                        {/* Product Image */}
                         <img
                             className="object-cover w-full h-48 mb-4"
-                            src={imageError[selectedProduct.id] ? "" : selectedProduct.img}
-                            // src={selectedProduct.img}
-
-                            alt={selectedProduct.Product}
-                            onError={() => handleImageError(selectedProduct.id)}
+                            src={imageError[selectedProduct?.id] ? null : selectedProduct?.img}
+                            alt={selectedProduct?.Product || 'Product Image'} // Fallback alt text
+                            onError={() => handleImageError(selectedProduct?.id)}
                         />
-                        <h3 className="mb-2 text-lg font-semibold">{selectedProduct.Product}</h3>
-                        <p className="mb-2 text-gray-600">{selectedProduct.description} </p>
+
+                        {/* Product Information */}
+                        <h3 className="mb-2 text-lg font-semibold">{selectedProduct?.Product}</h3>
+                        <p className="mb-2 text-gray-600">{selectedProduct?.description}</p>
                         <div className="mb-2 font-bold text-orange-500">
-                            {rupeelogo} {selectedProduct.price}
+                            {rupeelogo} {selectedProduct?.price}
                         </div>
+
+                        {/* Rating Stars */}
                         <div className="flex items-center mb-2">
-                            {getStars(selectedProduct.rating)}
+                            {getStars(selectedProduct?.rating)}
                         </div>
+
+                        {/* Add to Cart Button */}
                         <button
                             className="px-4 py-2 mt-4 text-white bg-orange-500 rounded"
                             onClick={() => {
@@ -257,17 +262,16 @@ function DemoProduct() {
                                 setSelectedProduct(null);
                             }}
                         >
-                            {shopping.some(p => p.id === selectedProduct.id) ? 'Remove from Cart' : 'Add to Cart'}
+                            {shopping.some(p => p.id === selectedProduct?.id) ? 'Remove from Cart' : 'Add to Cart'}
                         </button>
                     </div>
                 </div>
-            ) : null} */}
-
-
+            ) : null}
 
 
             {selectedCategory === 'shopping' && (
                 <div className="mt-10">
+
                     <h2 className="mb-4 text-2xl font-bold">{title}</h2>
                     {shopping.length === 0 ? (
                         <p>{t('Product is not  buy yet')}</p>
@@ -279,7 +283,7 @@ function DemoProduct() {
                                     <li key={item.id} className="flex items-center justify-between py-2 border-b">
                                         <div className="flex items-center">
                                             <img className="object-cover w-12 h-12 mr-4"
-                                                src={imageError[item.id] ? '' : selectedProduct.img} alt={item.Product} />
+                                                src={imageError[item.id] ? '' : item.img} alt={item.Product} />
                                             {/* src={item.img} /> */}
 
                                             <div>
@@ -316,7 +320,17 @@ function DemoProduct() {
                                 <span className="font-bold">{rupeelogo} {getTotalAmount()}</span>
                             </div>
                         </div>
+
                     )}
+
+                    <div className="flex justify-center mt-10">
+                        <button
+                            onClick={() => alert(" Thank You ❤")}
+                            className="w-1/2 p-2 duration-300 ease-in-out transform border-4 border-orange-700 pransition-transform otext-orange-700 hover:bg-orange-700 hover:text-white hover:scale-105 active:scale-95 focus:outline-none">
+                            Buy Now
+                        </button>
+                    </div>
+
                 </div>
             )}
 
