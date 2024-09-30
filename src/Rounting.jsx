@@ -150,7 +150,7 @@ function Layout() {
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, [pathname]);
+  }, []);
 
 
   return (
