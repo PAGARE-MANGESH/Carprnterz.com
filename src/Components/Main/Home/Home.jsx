@@ -30,17 +30,7 @@ const CarpenterHome = () => {
 
       <div className="container mt-20 ">
         <div className="flex flex-col md:flex-row md:items-start">
-          {/* <img
-            src={AboutLogo}
-            className="object-cover w-full mb-3 mr-20 md:w-1/3 md:mb-0 md:ml-3 h-96"
-            alt="Carpenter at work"
-          /> */}
-          <div className='mb-24 md:mr-24 md:mt-24 '>
-
-            <Animation />
-            {/* <Cube /> */}
-          </div>
-
+         
           <div className="flex-1 ml-20 mr-10 text-2xl ">
             <strong> {t('HomePage.title')} </strong>
             <p className='mt-2 tracking-widest '>

@@ -1,15 +1,11 @@
 
 
-
-
-
 import React, { useState, useEffect } from 'react';
 // import CartLogo from '../../../assets/react.svg';
 import { FaBell } from 'react-icons/fa';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { useTranslation } from 'react-i18next';
-
 
 
 function DemoProduct() {
@@ -134,8 +130,6 @@ function DemoProduct() {
 
 
 
-
-
     const sendToWhatsApp = () => {
         const message = shopping
             .map(item => `${item.Product}: ${rupeelogo} ${item.price} x ${item.quantity}`)
@@ -152,9 +146,6 @@ function DemoProduct() {
         // Open WhatsApp with the pre-filled message
         window.open(whatsappURL, '_blank');
     };
-
-
-
 
 
     return (
@@ -294,7 +285,7 @@ function DemoProduct() {
             ) : null}
 
 
-            {/* {selectedCategory === 'shopping' && (
+            {selectedCategory === 'shopping' && (
                 <div className="mt-10">
 
                     <h2 className="mb-4 text-2xl font-bold">{title}</h2>
@@ -309,7 +300,7 @@ function DemoProduct() {
                                         <div className="flex items-center">
                                             <img className="object-cover w-12 h-12 mr-4"
                                                 src={imageError[item.id] ? '' : item.img} alt={item.Product} />
-                                        
+
 
                                             <div>
                                                 <h3 className="font-semibold">{item.Product}</h3>
@@ -357,64 +348,9 @@ function DemoProduct() {
                     </div>
 
                 </div>
-            )} */}
-
-
-
-            {selectedCategory === 'shopping' && (
-                <div className="mt-10">
-                    <h2 className="mb-4 text-2xl font-bold">{title}</h2>
-                    {shopping.length === 0 ? (
-                        <p>{t('Product is not buy yet')}</p>
-                    ) : (
-                        <div className="p-4 rounded-lg shadow-md">
-                            <ul>
-                                {shopping.map(item => (
-                                    <li key={item.id} className="flex items-center justify-between py-2 border-b">
-                                        <div className="flex items-center">
-                                            <img className="object-cover w-12 h-12 mr-4"
-                                                src={imageError[item.id] ? '' : item.img}
-                                                alt={item.Product} />
-                                            <div>
-                                                <h3 className="font-semibold">{item.Product}</h3>
-                                                <p>{rupeelogo} {item.price} x {item.quantity}</p>
-                                            </div>
-                                        </div>
-                                        <div className="flex items-center">
-                                            <button
-                                                className="px-2 py-1 text-gray-700 bg-gray-300 rounded"
-                                                onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
-                                            >-</button>
-                                            <span className="mx-2">{item.quantity}</span>
-                                            <button
-                                                className="px-2 py-1 text-gray-700 bg-gray-300 rounded"
-                                                onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
-                                            >+</button>
-                                            <button
-                                                className="px-2 py-1 ml-2 text-white bg-red-500 rounded"
-                                                onClick={() => removeFromCart(item.id)}
-                                            >{remove}</button>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
-                            <div className="flex justify-between mt-4">
-                                <span className="font-bold">{total}:</span>
-                                <span className="font-bold">{rupeelogo} {getTotalAmount()}</span>
-                            </div>
-                        </div>
-                    )}
-
-                    {/* WhatsApp button */}
-                    <div className="flex justify-center mt-10">
-                        <button
-                            onClick={() => sendToWhatsApp()}
-                            className="w-1/2 p-2 text-orange-700 duration-300 ease-in-out transform border-4 border-orange-700 pransition-transform hover:bg-orange-700 hover:text-white hover:scale-105 active:scale-95 focus:outline-none">
-                            Send to WhatsApp
-                        </button>
-                    </div>
-                </div>
             )}
+
+
 
 
 
