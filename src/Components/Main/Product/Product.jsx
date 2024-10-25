@@ -129,25 +129,6 @@ function DemoProduct() {
             );
 
 
-
-    const sendToWhatsApp = () => {
-        const message = shopping
-            .map(item => `${item.Product}: ${rupeelogo} ${item.price} x ${item.quantity}`)
-            .join('\n');
-        const totalAmount = getTotalAmount();
-        const whatsappMessage = `Order Details:\n\n${message}\n\nTotal: ${rupeelogo} ${totalAmount}`;
-
-        // Replace with your phone number including country code
-        const phoneNumber = '8686869939';  // '91' is the country code for India
-
-        // WhatsApp API URL with your phone number in the correct format
-        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-
-        // Open WhatsApp with the pre-filled message
-        window.open(whatsappURL, '_blank');
-    };
-
-
     return (
 
         <div className='container p-4 mx-auto mt-10'>
@@ -349,10 +330,6 @@ function DemoProduct() {
 
                 </div>
             )}
-
-
-
-
 
         </div>
 

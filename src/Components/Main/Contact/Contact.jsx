@@ -5,10 +5,12 @@ import ContactImg from '../../../assets/Email.svg'
 const Contact = () => {
 
     const { t } = useTranslation()
+    
     const { title, name, email, message, sendMsg } = t("ContactPage")
 
     return (
         <div className="p-2 mt-16 mb-8 text-center">
+            
             <h2 className="mb-4 text-2xl font-bold text-gray-600 "> {title} </h2>
 
             <div className="p-1 mt-5 mb-5 border border-orange-200 sm:mt-0" data-aos="fade-right" data-aos-delay="800">

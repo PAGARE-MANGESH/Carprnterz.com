@@ -150,7 +150,7 @@
       },
       "rating": 4.6,
       "description": "मुलांच्या खोलीसाठी आदर्श मजबूत आणि जागा वाचवणारा बंक बेड.",
-      "images": ["images/bunk_bed.jpg"]
+      "images": ["./../../src/assets/ProductImges/BunkBed1.jfif"]
     }
   ]
 }

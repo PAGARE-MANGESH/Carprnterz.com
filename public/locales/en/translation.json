@@ -152,7 +152,7 @@
       },
       "rating": 4.6,
       "description": "A sturdy and space-saving bunk bed ideal for kids' rooms.",
-      "images": ["images/bunk_bed.jpg"]
+      "images": ["./../../src/assets/ProductImges/BunkBed1.jfif"]
     }
   ]
 }
