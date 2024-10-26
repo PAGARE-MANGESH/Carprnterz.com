@@ -14,7 +14,6 @@ const CarpenterHome = () => {
     <div>
 
       <SparklesPreview />
-
       <MovingCards />
     </div>
   );

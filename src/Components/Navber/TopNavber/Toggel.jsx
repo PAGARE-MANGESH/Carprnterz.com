@@ -1,9 +1,6 @@
-// ToggleButton.js
+
 import React, { useEffect, useState } from 'react';
-
 import moon from '../../../assets/NavbarIcons/moon.svg'
-
-
 import sun from '../../../assets/NavbarIcons/sun.svg'
 
 
@@ -69,7 +66,7 @@ const ToggleButton = ({ Menu }) => {
 
                     <div className="icon icon--moon">
                         {/* <svg
-                            className="h-6 w-6 text-yellow-500"
+                            className="w-6 h-6 text-yellow-500"
                             fill="currentColor"
                             viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +82,7 @@ const ToggleButton = ({ Menu }) => {
 
                         {/* <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 22C17.5228 22 22 17.5228 22 12C22 11.5373 21.3065 11.4608 21.0672 11.8568C19.9289 13.7406 17.8615 15 15.5 15C11.9101 15 9 12.0899 9 8.5C9 6.13845 10.2594 4.07105 12.1432 2.93276C12.5392 2.69347 12.4627 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#f97316"></path> </g></svg> */}
 
-                        <img src={sun} className="h-6 w-6 " />
+                        <img src={sun} className="w-6 h-6 " />
 
 
                     </div>
@@ -97,7 +94,7 @@ const ToggleButton = ({ Menu }) => {
 
                         {/* <svg
 
-                            className="h-6 w-6 text-gray-800"
+                            className="w-6 h-6 text-gray-800"
                             fill="currentColor"
                             viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg"
@@ -114,7 +111,7 @@ const ToggleButton = ({ Menu }) => {
                         </svg> */}
 
 
-                        <img src={moon} className="h-6 w-6 text-yellow-500" />
+                        <img src={moon} className="w-6 h-6 " />
 
 
 

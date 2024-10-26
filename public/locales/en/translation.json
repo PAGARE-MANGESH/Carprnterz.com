@@ -8,7 +8,8 @@
 
   "HomePage": {
     "title": "Carpenterz E-Commerce ",
-    "greeting": "Hello, Welcome! 👷‍♂️",
+    "greeting": "Hello, Welcome!",
+    "BTN": "Explore Our Cart",
     "carouselCaption": {
       "first": "We are able to make good Furniture",
       "second": "We can make Custom Furniture",

@@ -135,31 +135,31 @@ function DemoProduct() {
 
             <div className="flex flex-wrap items-center justify-center gap-4 mb-6 font-bold">
                 <button
-                    className={`px-4 py-2 rounded ${selectedCategory === 'all' ? ' text-orange-700 ' : ''}`}
+                    className={`px-4 py-2 rounded ${selectedCategory === 'all' ? ' text-blue-500 ' : ''}`}
                     onClick={() => handleCategoryChange('all')}
                 >
                     {All}
                 </button>
                 <button
-                    className={`px-4 py-2 rounded ${selectedCategory === 'Table' ? ' text-orange-700 ' : ''}`}
+                    className={`px-4 py-2 rounded ${selectedCategory === 'Table' ? ' text-blue-500 ' : ''}`}
                     onClick={() => handleCategoryChange('Table')}
                 >
                     {Tables}
                 </button>
                 <button
-                    className={`px-4 py-2 rounded ${selectedCategory === 'Chair' ? ' text-orange-700 ' : ''}`}
+                    className={`px-4 py-2 rounded ${selectedCategory === 'Chair' ? ' text-blue-500 ' : ''}`}
                     onClick={() => handleCategoryChange('Chair')}
                 >
                     {Chairs}
                 </button>
                 <button
-                    className={`px-4 py-2 rounded ${selectedCategory === 'Bed' ? ' text-orange-700 ' : ''}`}
+                    className={`px-4 py-2 rounded ${selectedCategory === 'Bed' ? ' text-blue-500 ' : ''}`}
                     onClick={() => handleCategoryChange('Bed')}
                 >
                     {Beds}
                 </button>
                 <button
-                    className={`px-4 py-2 rounded relative ${selectedCategory === 'shopping' ? ' text-orange-700 ' : ''}`}
+                    className={`px-4 py-2 rounded relative ${selectedCategory === 'shopping' ? ' text-blue-500 ' : ''}`}
                     onClick={() => handleCategoryChange('shopping')}
                 >
                     {Shopping}
@@ -193,7 +193,7 @@ function DemoProduct() {
                                 <h3 className="text-lg font-semibold">{product.Product}</h3>
                                 <p className="text-gray-600">{truncateText(product.description, 50)}</p>
                                 <div className="flex items-center justify-between mt-2">
-                                    <div className="font-bold text-orange-500">
+                                    <div className="font-bold text-blue-500">
                                         {rupeelogo} {product.price}
                                     </div>
                                     <div className="flex items-center">
@@ -201,7 +201,7 @@ function DemoProduct() {
                                     </div>
                                 </div>
                                 <button
-                                    className="px-4 py-2 mt-4 text-white bg-orange-500 rounded"
+                                    className="px-4 py-2 mt-4 text-white bg-blue-500 rounded"
                                     onClick={(e) => {
                                         e.stopPropagation();
                                         toggleCart(product);
@@ -242,7 +242,7 @@ function DemoProduct() {
                         {/* Product Information */}
                         <h3 className="mb-2 text-lg font-semibold">{selectedProduct?.Product}</h3>
                         <p className="mb-2 text-gray-600">{selectedProduct?.description}</p>
-                        <div className="mb-2 font-bold text-orange-500">
+                        <div className="mb-2 font-bold text-blue-500">
                             {rupeelogo} {selectedProduct?.price}
                         </div>
 
@@ -323,7 +323,7 @@ function DemoProduct() {
                     <div className="flex justify-center mt-10">
                         <button
                             onClick={() => alert(" Thank You ❤")}
-                            className="w-1/2 p-2 duration-300 ease-in-out transform border-4 border-orange-700 pransition-transform otext-orange-700 hover:bg-orange-700 hover:text-white hover:scale-105 active:scale-95 focus:outline-none">
+                            className="w-1/2 p-2 duration-300 ease-in-out transform border-4 border-orange-700 pransition-transform otext-blue-500 hover:bg-orange-700 hover:text-white hover:scale-105 active:scale-95 focus:outline-none">
                             Buy Now
                         </button>
                     </div>

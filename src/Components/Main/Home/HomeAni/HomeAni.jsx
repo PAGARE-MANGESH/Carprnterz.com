@@ -81,22 +81,24 @@ export default function SparklesPreview() {
     const { t } = useTranslation();
 
     return (
-        <div className="flex flex-col items-center justify-center w-full px-6 mt-40 overflow-hidden rounded-md mb-28 hauto md:pt-28 md:flex-row lg:px-12">
+        <div className="flex flex-col items-center justify-center w-full px-6 overflow-hidden rounded-md mb-28 hauto md:pt-28 md:flex-row lg:px-12">
 
-            <div className="flex flex-col items-center text-center md:items-start md:ml-10 md:text-left">
+            <div className="flex flex-col items-center mt-40 text-center md:mt-20 md:items-start md:ml-10 md:text-left">
+
                 <p className="text-lg text-gray-500 md:text-xl lg:text-2xl">
-                    {t("HomePage.greeting")} 👷‍♂️
+                    {t("HomePage.greeting")}
                 </p>
 
                 <h1 className="relative z-20 text-2xl font-bold text-gray-500 duration-300 hover:text-blue-400 sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-9xl">
                     {t("HomePage.title")} 👷‍♂️
                 </h1>
 
-                <Link to="/about">
+                <Link to="/Product">
                     <button className="p-3 my-6 text-blue-500 underline transition-colors duration-300 border-blue-500 underline-offset-4 rounded-xl hover:text-blue-500 hover:border md:p-4 md:my-10">
-                        Explore Our Cart 😇
+                        {t("HomePage.BTN")} 😇
                     </button>
                 </Link>
+
             </div>
         </div>
     );

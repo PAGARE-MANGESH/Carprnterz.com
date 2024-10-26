@@ -6,8 +6,9 @@
     "contact": "संपर्क"
   },
   "HomePage": {
-    "title": "Carpenterz E-Commerce ",
+    "title": "Carpenterz E-Commerce",
     "greeting": "नमस्ते, आपले स्वागत आहे!",
+    "BTN": "आमच कार्ट पहा ",
     "carouselCaption": {
       "first": "आम्ही चांगले फर्निचर बनवू शकतो",
       "second": "आम्ही कस्टम फर्निचर बनवू शकतो",
