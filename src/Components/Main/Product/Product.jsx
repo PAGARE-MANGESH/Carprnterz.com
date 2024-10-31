@@ -133,7 +133,7 @@ function DemoProduct() {
 
         <div className='container p-4 mx-auto mt-10'>
 
-            <div className="flex flex-wrap items-center justify-center gap-4 mb-6 font-bold">
+            <div className="flex flex-wrap items-center justify-center gap-4 mb-6 font-bold text-gray-500">
                 <button
                     className={`px-4 py-2 rounded ${selectedCategory === 'all' ? ' text-blue-500 ' : ''}`}
                     onClick={() => handleCategoryChange('all')}
@@ -164,7 +164,7 @@ function DemoProduct() {
                 >
                     {Shopping}
                     {showNotification && (
-                        <FaBell className="absolute top-0 right-0 text-red-500" />
+                        <FaBell className="absolute top-0 right-0 text-blue-500" />
                     )}
                 </button>
             </div>
@@ -190,7 +190,7 @@ function DemoProduct() {
                                 onError={() => handleImageError(product.id)}
                             />
                             <div className="p-4">
-                                <h3 className="text-lg font-semibold">{product.Product}</h3>
+                                <h3 className="text-lg font-semibold text-gray-500">{product.Product}</h3>
                                 <p className="text-gray-600">{truncateText(product.description, 50)}</p>
                                 <div className="flex items-center justify-between mt-2">
                                     <div className="font-bold text-blue-500">
@@ -222,7 +222,7 @@ function DemoProduct() {
 
             {selectedProduct && selectedProduct.img ? (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-600 bg-opacity-50">
-                    <div className="w-11/12 p-6 bg-white rounded-lg shadow-md sm:w-3/4 md:w-1/2 lg:w-1/3">
+                    <div className="w-11/12 p-6 text-gray-400 bg-white bg-opacity-50 rounded-lg shadow-md sm:w-3/4 md:w-1/2 lg:w-1/3">
                         {/* Close Button */}
                         <button
                             className="float-right text-gray-500 hover:text-gray-700"
@@ -253,7 +253,7 @@ function DemoProduct() {
 
                         {/* Add to Cart Button */}
                         <button
-                            className="px-4 py-2 mt-4 text-white bg-orange-500 rounded"
+                            className="px-4 py-2 mt-4 text-white bg-blue-500 rounded"
                             onClick={() => {
                                 toggleCart(selectedProduct);
                                 setSelectedProduct(null);
@@ -323,7 +323,7 @@ function DemoProduct() {
                     <div className="flex justify-center mt-10">
                         <button
                             onClick={() => alert(" Thank You ❤")}
-                            className="w-1/2 p-2 duration-300 ease-in-out transform border-4 border-orange-700 pransition-transform otext-blue-500 hover:bg-orange-700 hover:text-white hover:scale-105 active:scale-95 focus:outline-none">
+                            className="w-1/2 p-2 duration-300 ease-in-out transform border-4 border-blue-500 pransition-transform otext-blue-500 hover:bg-blue-500 hover:text-white hover:scale-105 active:scale-95 focus:outline-none">
                             Buy Now
                         </button>
                     </div>

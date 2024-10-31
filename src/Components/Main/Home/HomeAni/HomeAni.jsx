@@ -94,7 +94,7 @@ export default function SparklesPreview() {
                 </h1>
 
                 <Link to="/Product">
-                    <button className="p-3 my-6 text-blue-500 underline transition-colors duration-300 border-blue-500 underline-offset-4 rounded-xl hover:text-blue-500 hover:border md:p-4 md:my-10">
+                    <button className="p-3 my-6 text-blue-500 underline transition-colors border border-blue-500 underline-offset-4 rounded-xl hover:text-blue-500 md:p-4 md:my-10">
                         {t("HomePage.BTN")} 😇
                     </button>
                 </Link>

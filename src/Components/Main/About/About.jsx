@@ -45,7 +45,7 @@ const About = () => {
           <p className="text-lg">{phone}</p>
         </div>
         <div className="text-gray-500">
-          <h1 className="mb-4 text-4xl font-bold text-blue-500">{title}</h1>
+          <h1 className="mb-4 text-4xl font-bold text-blue-400">{title}</h1>
           <p className="mb-4 text-xl">{experience}</p>
           <p className="mb-4 text-xl">{services}</p>
         </div>
