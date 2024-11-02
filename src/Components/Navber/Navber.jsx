@@ -21,7 +21,7 @@ const Sidebar = () => {
         <>
             {/* For Big Screen */}
             <div className='container fixed left-0 right-0 z-10 hidden mx-auto md:block bottom-10 rounded-b-2xl'>
-                <nav className='p-1 drop-shadow-md' style={{ backgroundColor: 'rgba(255, 255, 255, 0.3)', backdropFilter: 'blur(1px)' }}>
+                <nav className='p-1 bg-gray-200 border border-blue-100 dark:bg-gray-800 drop-shadow-md' >
                     <ul className='flex justify-center space-x-20 text-center text-1xl'>
                         <li className="my-2" title='Home'>
                             <NavLink
@@ -108,6 +108,7 @@ const Sidebar = () => {
                     </li>
                 </ul>
             </nav>
+
         </>
     );
 };

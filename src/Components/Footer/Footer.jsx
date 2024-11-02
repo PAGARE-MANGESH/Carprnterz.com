@@ -14,29 +14,24 @@ const Footer = () => {
 
     return (
 
-        <footer className="bg-gray-800 text-white py-20 px-6 mt-24">
+        <footer className="px-6 py-20 pb-40 mt-24 bg-gray-400 dark:text-white dark:bg-gray-800">
 
-            <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-24 text-center md:text-left">
-                <div className="flex flex-col items-center md:items-start">
-                    <h3 className="text-2xl font-bold mb-6">{about}</h3>
+            <div className="container grid grid-cols-1 gap-24 mx-auto text-center md:grid-cols-3 lg:grid-cols-5 md:text-left">
+                <div className="flex flex-col items-center md:items-center">
+                    <h3 className="mb-6 text-2xl font-bold text-blue-500">{about}</h3>
                     <p className="text-md">{aboutDisc}</p>
                 </div>
-                <div className="flex flex-col items-center md:items-start">
-                    <h3 className="text-2xl font-bold mb-6">{contact}</h3>
+                <div className="flex flex-col items-center md:items-center">
+                    <h3 className="mb-6 text-2xl font-bold text-blue-500 ">{contact}</h3>
                     <p> {contactDisc} </p>
-                    {/* <p className="text-md">Email: <a href="mailto:contact@carpenters.com" className="underline hover:text-gray-400">contact@carpenters.com</a></p>
-                    <p className="text-md">Phone: <a href="tel:+1234567890" className="underline hover:text-gray-400">(123) 456-7890</a></p> */}
                 </div>
-                <div className="flex flex-col items-center md:items-start">
-                    <h3 className="text-2xl font-bold mb-6">{services}</h3>
-                    {/* <p className="text-md">Custom Furniture</p>
-                    <p className="text-md">Home Renovations</p>
-                    <p className="text-md">Deck Building</p> */}
+                <div className="flex flex-col items-center md:items-center">
+                    <h3 className="mb-6 text-2xl font-bold text-blue-500">{services}</h3>
                     <p> {servicesDisc} </p>
                 </div>
-                <div className="flex flex-col items-center md:items-start">
-                    <h3 className="text-2xl font-bold mb-6">{newsletter}</h3>
-                    <p className="text-md mb-4">{newsletterDesc}</p>
+                <div className="flex flex-col items-center md:items-center">
+                    <h3 className="mb-6 text-2xl font-bold text-blue-500">{newsletter}</h3>
+                    <p className="mb-4 text-md">{newsletterDesc}</p>
                     <form className="w-full max-w-sm">
                         <input
                             type="email"
@@ -45,30 +40,33 @@ const Footer = () => {
                         />
                         <button
                             type="submit"
-                            className="w-full mt-2 bg-gray-700 text-white py-2 rounded-md hover:bg-gray-600 transition duration-300"
+                            className="w-full py-2 mt-2 text-white transition duration-300 bg-gray-700 rounded-md hover:bg-gray-600"
                         >
                             {btn}
                         </button>
                     </form>
                 </div>
-                <div className="flex flex-col items-center md:items-start">
-                    <h3 className="text-2xl font-bold mb-6">{follow}</h3>
+
+                <div className="flex flex-col items-center md:items-center">
+                    <h3 className="mb-6 text-2xl font-bold text-blue-500">{follow}</h3>
                     <div className="flex space-x-6">
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition duration-300">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="transition duration-300 hover:text-gray-400">
                             <FontAwesomeIcon icon={faFacebook} className="w-7 h-7" />
                         </a>
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition duration-300">
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="transition duration-300 hover:text-gray-400">
                             <FontAwesomeIcon icon={faTwitter} className="w-7 h-7" />
                         </a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition duration-300">
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="transition duration-300 hover:text-gray-400">
                             <FontAwesomeIcon icon={faInstagram} className="w-7 h-7" />
                         </a>
                     </div>
+
                 </div>
+
             </div>
 
 
-            <div className="mt-8 text-center text-lg text-gray-400">
+            <div className="mt-8 text-lg text-center text-gray-400 ">
                 &copy; {new Date().getFullYear()} {followDesc} </div>
 
         </footer>

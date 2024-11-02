@@ -68,7 +68,7 @@ function Home() {
         <>
             <div className="fixed top-0 left-0 right-0 z-50 flex items-center p-2 bg-black border rounded-lg shadow-lg bg-opacity-30 backdrop-blur-md border-gray-200/30 header h-14">
                 {/* Logo */}
-                <img src={logo} alt="Logo" className="w-10 h-10 ml-2 rounded-full logo" />
+                <img src={logo} alt="Logo" className="object-contain w-10 h-10 ml-2 rounded-full logo" />
 
                 <div className="flex items-center ml-auto mr-4 space-x-4">
                     {/* Language Selector */}

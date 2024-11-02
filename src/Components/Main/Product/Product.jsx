@@ -170,7 +170,6 @@ function DemoProduct() {
             </div>
 
 
-
             {filteredProducts.length > 0 ? (
                 <div className="grid grid-cols-1 gap-4 cursor-pointer sm:grid-cols-2 md:grid-cols-3">
 
@@ -182,7 +181,7 @@ function DemoProduct() {
                             onClick={() => setSelectedProduct(product)}
                         >
                             <img
-                                className="object-cover w-full h-48"
+                                className="object-contain w-full h-48 bg-gray-800"
                                 src={imageError[product.id] ? '' : product.img}
                                 // src={product.img}
 
@@ -303,7 +302,7 @@ function DemoProduct() {
                                                 +
                                             </button>
                                             <button
-                                                className="px-2 py-1 ml-2 text-white bg-red-500 rounded"
+                                                className="px-2 py-1 ml-2 text-white bg-blue-500 rounded"
                                                 onClick={() => removeFromCart(item.id)}
                                             >
                                                 {remove}

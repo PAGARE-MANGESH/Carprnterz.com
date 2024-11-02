@@ -1,12 +1,8 @@
 
 
-
-
 import React, { useState } from 'react';
 
 const ProductList = ({ products, shopping, toggleCart }) => {
-
-    // const [selectedProduct, setSelectedProduct] = useState(null);
 
     const getStars = (rating) => {
         return '★'.repeat(Math.round(rating)) + '☆'.repeat(5 - Math.round(rating));
