@@ -50,6 +50,10 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+#StickyScrollRevealDemo::-webkit-scrollbar {
+  display: none;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;

@@ -3,9 +3,7 @@
 import React from 'react'
 
 import SparklesPreview from './HomeAni/HomeAni'
-
-
-
+import StickyScrollRevealDemo from './Cards/Cards'
 
 const CarpenterHome = () => {
 
@@ -13,6 +11,7 @@ const CarpenterHome = () => {
 
     <div>
       <SparklesPreview />
+      <StickyScrollRevealDemo />
     </div>
   );
 };

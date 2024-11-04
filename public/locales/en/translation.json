@@ -1,5 +1,4 @@
 {
-
   "Navber": {
     "home": "Home",
     "about": "About",
@@ -222,7 +221,58 @@
       "title": "On Unity",
       "link": "https://example.com/vivekananda-unity"
     }
-  ]
+  ],
 
-  
+  "Compotitle": "We offer this",
+
+  "content": [
+    {
+      "title": "Custom Furniture Design",
+      "description": "Collaborate with our master carpenters to design custom furniture that matches your style and space perfectly. From rustic to modern, our team brings your vision to life with quality craftsmanship.",
+      "content": {
+        "type": "image",
+        "src": "ContentImg1",
+        "width": 300,
+        "height": 300,
+        "alt": "Project update demo",
+        "className": "object-cover w-full h-full"
+      }
+    },
+    {
+      "title": "Real-time Project Updates",
+      "description": "Stay updated with real-time progress on your custom furniture or renovation project. Track every step, from material selection to finishing touches, and rest assured that your project is on schedule.",
+      "content": {
+        "type": "image",
+        "src": "ContentImg2",
+        "width": 300,
+        "height": 300,
+        "alt": "Project update demo",
+        "className": "object-cover w-full h-full"
+      }
+    },
+    {
+      "title": "Durable Materials",
+      "description": "Our craftsmen select only high-quality, durable materials to ensure your furniture stands the test of time. We work with various types of wood, metal, and finishes to create pieces that are not only beautiful but also built to last.",
+      "content": {
+        "type": "image",
+        "src": "ContentImg3",
+        "width": 300,
+        "height": 300,
+        "alt": "Project update demo",
+        "className": "object-cover w-full h-full"
+      }
+    },
+    {
+      "title": "Precision Craftsmanship",
+      "description": "Our team prides itself on attention to detail. From intricate carvings to seamless joints, we ensure every piece is crafted with the highest level of precision and care.",
+      "content": {
+        "type": "image",
+        "src": "ContentImg4",
+        "width": 300,
+        "height": 300,
+        "alt": "Project update demo",
+        "className": "object-cover w-full h-full"
+      }
+    }
+  ]
 }

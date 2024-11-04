@@ -32,6 +32,7 @@ const About = () => {
   } = t("AboutPage");
 
   return (
+
     <div className="container p-6 mx-auto mt-20 ">
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         <div className="flex flex-col items-center text-gray-500">
@@ -79,6 +80,7 @@ const About = () => {
         </div>
       </div>
     </div>
+
   );
 };
 

@@ -20,7 +20,7 @@ const Sidebar = () => {
     return (
         <>
             {/* For Big Screen */}
-            <div className='container fixed left-0 right-0 z-10 hidden mx-auto md:block bottom-10 rounded-b-2xl'>
+            <div className='container fixed left-0 right-0 z-10 hidden mx-auto asolute md:block bottom-10 rounded-b-2xl'>
                 <nav className='p-1 bg-gray-200 border border-blue-100 dark:bg-gray-800 drop-shadow-md' >
                     <ul className='flex justify-center space-x-20 text-center text-1xl'>
                         <li className="my-2" title='Home'>
