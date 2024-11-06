@@ -46,7 +46,9 @@
     "title": "Contact Us",
     "name": "Name",
     "email": "E-mail",
+    "phone": "Phone No",
     "message": "Message",
+    "address": "Address",
     "sendMsg": "Send Message"
   },
 
@@ -54,6 +56,7 @@
     "title": "Shopping Cart",
     "total": "total",
     "remove": "remove",
+    "add":"Add To Cart",
     "rupeelogo": "$",
     "ProductNav": {
       "All": "All",

@@ -1,12 +1,13 @@
 
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 
 const Sidebar = () => {
+
     const { t } = useTranslation();
     const { home, about, product, contact } = t("Navber");
 
@@ -20,7 +21,8 @@ const Sidebar = () => {
     return (
         <>
             {/* For Big Screen */}
-            <div className='container fixed left-0 right-0 z-10 hidden mx-auto asolute md:block bottom-10 rounded-b-2xl'>
+
+            <div className='container fixed left-0 right-0 z-10 hidden mx-auto md:block bottom-10 rounded-b-2xl'>
                 <nav className='p-1 bg-gray-200 border border-blue-100 dark:bg-gray-800 drop-shadow-md' >
                     <ul className='flex justify-center space-x-20 text-center text-1xl'>
                         <li className="my-2" title='Home'>
@@ -68,7 +70,8 @@ const Sidebar = () => {
             </div>
 
             {/* For Small Screen */}
-            <nav className='fixed bottom-0 left-0 right-0 flex p-2 md:hidden md:static rounded-t-3xl md:left-auto md:right-auto md:top-0 md:w-16 drop-shadow-md md:min-h-screen' style={{ backgroundColor: 'rgba(255, 255, 255, 0.3)', backdropFilter: 'blur(1px)' }}>
+
+            <nav className='fixed bottom-0 left-0 right-0 z-10 flex p-2 bg-gray-200 dark:bg-gray-800 md:hidden md:static rounded-t-3xl md:left-auto md:right-auto md:top-0 md:w-16 drop-shadow-md md:min-h-screen'>
                 <ul className='flex justify-around w-full mt-0 text-2xl text-center md:flex-col md:w-auto md:mt-16 md:pt-10'>
                     <li className="my-2" title='Home'>
                         <NavLink
@@ -108,7 +111,6 @@ const Sidebar = () => {
                     </li>
                 </ul>
             </nav>
-
         </>
     );
 };

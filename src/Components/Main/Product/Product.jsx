@@ -14,7 +14,7 @@ function DemoProduct() {
     const { All, Tables, Chairs, Beds, Shopping } = t("ProductPage.ProductNav");
     const Items = t('ProductList');
 
-    const { rupeelogo, total, title, remove } = t("ProductPage");
+    const { rupeelogo, total, title, remove, add } = t("ProductPage");
     const [products, setProducts] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [shopping, setShopping] = useState([]);
@@ -131,7 +131,7 @@ function DemoProduct() {
 
     return (
 
-        <div className='container p-4 mx-auto mt-10'>
+        <div className='container relative p-4 mx-auto mt-10'>
 
             <div className="flex flex-wrap items-center justify-center gap-4 mb-6 font-bold text-gray-500">
                 <button
@@ -176,12 +176,12 @@ function DemoProduct() {
                     {filteredProducts.map(product => (
                         <div
                             key={product.id}
-                            className="overflow-hidden bg-white rounded-lg shadow-md"
+                            className="overflow-hidden border shadow-md roundedlg rounded-2xl"
                             data-aos="fade-up"
                             onClick={() => setSelectedProduct(product)}
                         >
                             <img
-                                className="object-contain w-full h-48 bg-gray-800"
+                                className="object-cover w-full h-48 bg-gray-800"
                                 src={imageError[product.id] ? '' : product.img}
                                 // src={product.img}
 
@@ -206,7 +206,7 @@ function DemoProduct() {
                                         toggleCart(product);
                                     }}
                                 >
-                                    {shopping.some(p => p.id === product.id) ? t('Remove from Cart') : t('Add to Cart')}
+                                    {shopping.some(p => p.id === product.id) ? remove : add}
                                 </button>
                             </div>
                         </div>
@@ -276,18 +276,16 @@ function DemoProduct() {
                             <ul>
                                 {shopping.map(item => (
 
-                                    <li key={item.id} className="flex items-center justify-between py-2 border-b">
-                                        <div className="flex items-center">
-                                            <img className="object-cover w-12 h-12 mr-4"
+                                    <li key={item.id} className="items-center justify-between py-2 border-b md:flex">
+                                        <div className="justify-center md:flex item-center">
+                                            <img className="object-cover w-12 h-12 mx-auto md:mr-4"
                                                 src={imageError[item.id] ? '' : item.img} alt={item.Product} />
-
-
-                                            <div>
-                                                <h3 className="font-semibold">{item.Product}</h3>
+                                            <div className='text-center md:ml-4 item-center'>
+                                                <h3 className="py-2 font-semibold">{item.Product}</h3>
                                                 <p>{rupeelogo} {item.price} x {item.quantity}</p>
                                             </div>
                                         </div>
-                                        <div className="flex items-center">
+                                        <div className="flex items-center justify-center py-2 text-center">
                                             <button
                                                 className="px-2 py-1 text-gray-700 bg-gray-300 rounded"
                                                 onClick={() => handleQuantityChange(item.id, item.quantity - 1)}

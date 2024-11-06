@@ -39,13 +39,7 @@
 
 //             </div>
 
-
-
-
-
-
 //             {/* <LanguageSelector /> */}
-
 
 //         </>
 //     );
@@ -66,7 +60,7 @@ import XchangeLang from './XchangeLang';
 function Home() {
     return (
         <>
-            <div className="fixed top-0 left-0 right-0 z-50 flex items-center p-2 bg-black border rounded-lg shadow-lg bg-opacity-30 backdrop-blur-md border-gray-200/30 header h-14">
+            <div className="fixed top-0 left-0 right-0 z-50 flex items-center p-2 bg-black border rounded-lg shadow-lg bg-opacity-40 backdrop-blur-md border-gray-200/30 header h-14">
                 {/* Logo */}
                 <img src={logo} alt="Logo" className="object-contain w-10 h-10 ml-2 rounded-full logo" />
 
@@ -77,11 +71,12 @@ function Home() {
                     </span>
 
                     {/* Toggle Button */}
-                    <span className="mt-1">
+                    <span className="mt-1 ">
                         <ToggleButton />
                     </span>
                 </div>
             </div>
+
         </>
     );
 }

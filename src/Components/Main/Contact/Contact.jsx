@@ -1,109 +1,333 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next';
-import ContactImg from '../../../assets/Email.svg'
 
-const Contact = () => {
+
+
+
+
+
+
+
+
+
+
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { FaArrowUp } from 'react-icons/fa';
+import AOS from 'aos';
+import { useTranslation } from 'react-i18next';
+import 'aos/dist/aos.css';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+
+import Swal from 'sweetalert2';
+
+const ContactForm = () => {
+
+
+    const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
+    const [phone, setPhone] = useState('');
+    const [address, setAddress] = useState('');
 
     const { t } = useTranslation()
 
-    const { title, name, email, message, sendMsg } = t("ContactPage")
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {
+                Accept: 'application/json',
+            },
+        })
+            .then((response) => {
+                if (response.ok) {
+                    // alert('Message sent successfully, Thank You ❤ !');
+
+                    setName('');
+                    setPhone('');
+                    setEmail('');
+                    setAddress('');
+
+                    e.target.message.value = '';
+                } else {
+                    alert('Failed to send message');
+                }
+            })
+            .catch((error) => console.error('Form submission error:', error));
+    };
+
+    const handleClick = () => {
+        let timerInterval;
+        Swal.fire({
+            title: "Thank You ❤",
+            html: "I will send in <b></b> milliseconds.",
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+                const timer = Swal.getPopup().querySelector("b");
+                timerInterval = setInterval(() => {
+                    timer.textContent = `${Swal.getTimerLeft()}`;
+                }, 100);
+            },
+            willClose: () => {
+                setName('');
+                setPhone('');
+                setEmail('');
+                setAddress('');
+                clearInterval(timerInterval);
+            }
+        }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log("I was closed by the timer");
+            }
+        });
+    };
 
     return (
-        <div className="p-2 mt-16 mb-8 text-center">
-
-            <h2 className="mb-4 text-2xl font-bold text-blue-500 "> {title} </h2>
-
-            <div className="p-1 mt-5 mb-5 border border-orange-200 sm:mt-0" data-aos="fade-right" data-aos-delay="800">
-
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d142801.02799908794!2d75.16877348345594!3d19.859945636526735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdb9815a369bc63%3A0x712d538b29a2a73e!2sAurangabad%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1713765646738!5m2!1sen!2sin"
-                    allowFullScreen=""
-                    height={400}
-                    width={600}
-                    loading="lazy"
-                    title="Google Map"
-                    className='w-full p-2 shadow-xl rounded-xl'
-                ></iframe>
-
-
-
-            </div>
-
-            {/* <form className="max-w-md mx-auto text-gray-800 drop-shadow-md">
-                <div className="mb-4">
-
+        <fieldset className="p-6 mt-8 transition-all duration-300 ease-in-out transform border-2 border-blue-500 rounded-lg hover:border-blue-700">
+            <legend className="px-6 mb-6 text-lg font-semibold text-blue-500">
+                {t("ContactPage.title")}  👩‍💻
+            </legend>
+            <motion.form
+                onSubmit={handleSubmit}
+                className="grid grid-cols-1 gap-8 md:grid-cols-2"
+                action="https://formspree.io/f/xovabjrp"
+                method="POST"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6 }}
+            >
+                <motion.div className="relative flex-1" whileHover={{ scale: 1.03 }}>
                     <input
                         type="text"
-                        placeholder={name}
-                        className="w-full p-2 text-center border rounded-lg"
+                        id="username"
+                        name="username"
                         required
+                        placeholder=" "
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className="w-full p-4 text-blue-500 bg-transparent border-b border-blue-500 rounded-md peer focus:outline-none focus:ring-2 focus:ring-blue-300"
                     />
+                    <label
+                        htmlFor="username"
+                        className="absolute text-blue-500 transition-all duration-300 origin-left transform scale-100 -translate-y-6 pointer-events-none left-3 top-4 peer-placeholder-shown:translate-y-3 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75"
+                    >
+                        {t("ContactPage.name")} 😇
+                    </label>
+                </motion.div>
 
-                </div>
-                <div className="mb-4">
+                <motion.div className="relative flex-1" whileHover={{ scale: 1.03 }}>
+                    <input
+                        type="tel"
+                        id="phone"
+                        required
+                        name="phone"
+                        placeholder=" "
+                        maxLength={12}
+                        value={phone}
+                        onChange={(e) => {
+                            const onlyNums = e.target.value.replace(/[^0-9]/g, '');
+                            setPhone(onlyNums);
+                        }}
+                        className="w-full p-4 text-blue-500 bg-transparent border-b border-blue-500 rounded-md peer focus:outline-none focus:ring-2 focus:ring-blue-300"
+                    />
+                    <label
+                        htmlFor="phone"
+                        className="absolute text-blue-500 transition-all duration-300 origin-left transform scale-100 -translate-y-6 pointer-events-none left-3 top-4 peer-placeholder-shown:translate-y-3 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75"
+                    >
+                        {t("ContactPage.phone")} 📞
+                    </label>
+                </motion.div>
+
+                <motion.div className="relative flex-1 mt-4" whileHover={{ scale: 1.03 }}>
                     <input
                         type="email"
-                        placeholder={email}
-                        className="w-full p-2 text-center border rounded-lg"
+                        id="email"
+                        name="email"
                         required
+                        placeholder=" "
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="w-full p-4 text-blue-500 bg-transparent border-b border-blue-500 rounded-md peer focus:outline-none focus:ring-2 focus:ring-blue-300"
                     />
-                </div>
-                <div className="mb-4">
-                    <textarea
-                        placeholder={message}
-                        className="w-full p-2 text-center border rounded-lg"
-                        rows="4"
-                        required
-                    ></textarea>
-                </div>
-                <button
-                    type="submit"
-                    className="w-full p-2 text-white bg-gray-500 rounded-lg hover:bg-gray-600 "
-                >
-                    {sendMsg}
-                </button>
-            </form> */}
+                    <label
+                        htmlFor="email"
+                        className="absolute text-blue-500 transition-all duration-300 origin-left transform scale-100 -translate-y-6 pointer-events-none left-3 top-4 peer-placeholder-shown:translate-y-3 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75"
+                    >
+                        {t("ContactPage.email")} 😇
 
+                    </label>
+                </motion.div>
 
-
-            <form className="grid max-w-md gap-4 mx-auto dark:text-gray-100 drop-shadow-md">
-                <div className="grid gap-2">
+                <motion.div className="relative flex-1 mt-4" whileHover={{ scale: 1.03 }}>
                     <input
                         type="text"
-                        placeholder={name}
-                        className="w-full p-2 text-center bg-transparent border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                        id="address"
+                        name="address"
                         required
+                        placeholder=" "
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                        className="w-full p-4 text-blue-500 bg-transparent border-b border-blue-500 rounded-md peer focus:outline-none focus:ring-2 focus:ring-blue-300"
                     />
-                </div>
-                <div className="grid gap-2">
-                    <input
-                        type="email"
-                        placeholder={email}
-                        className="w-full p-2 text-center bg-transparent border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-                        required
-                    />
-                </div>
-                <div className="grid gap-2">
+                    <label
+                        htmlFor="address"
+                        className="absolute text-blue-500 transition-all duration-300 origin-left transform scale-100 -translate-y-6 pointer-events-none left-3 top-4 peer-placeholder-shown:translate-y-3 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75"
+                    >
+                        {t("ContactPage.address")} 🏠
+                    </label>
+                </motion.div>
+
+                <motion.div className="relative col-span-1 mt-6 md:col-span-2" whileHover={{ scale: 1.03 }}>
                     <textarea
-                        placeholder={message}
-                        className="w-full p-2 text-center bg-transparent border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-                        rows="4"
                         required
-                    ></textarea>
+                        className="w-full p-4 text-blue-500 bg-transparent border-b border-blue-500 rounded-md peer focus:outline-none focus:ring-2 focus:ring-blue-300"
+                        rows="4"
+                        id="message"
+                        maxLength={400}
+                        name="message"
+                        placeholder=" "
+                    />
+                    <label
+                        htmlFor="message"
+                        className="absolute text-blue-500 transition-all duration-300 origin-left transform scale-100 -translate-y-6 pointer-events-none left-3 top-4 peer-placeholder-shown:translate-y-3 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75"
+                    >
+                        {t("ContactPage.message")} 📃
+                    </label>
+                </motion.div>
+
+                {/* <div className="flex justify-center col-span-1 mt-6 md:col-span-2">
+                    <motion.button
+                        type="submit"
+                        className="px-6 py-3 text-blue-500 border border-blue-500 rounded-lg hover:text-white hover:bg-blue-500"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        Send Message
+                    </motion.button>
+                </div> */}
+
+
+
+                <div className="flex justify-center col-span-1 mt-6 md:col-span-2">
+                    <motion.button
+                        type="submit"  // Change to button instead of submit to prevent form submission
+                        className="px-6 py-3 text-blue-500 border border-blue-500 rounded-lg hover:text-white hover:bg-blue-500"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
+                        onClick={handleClick}
+                    >
+                        {t("ContactPage.sendMsg")}
+                    </motion.button>
                 </div>
-                <button
-                    type="submit"
-                    className="w-full p-2 font-semibold text-white transition bg-gray-500 rounded-lg hover:bg-gray-600"
-                >
-                    {sendMsg}
-                </button>
-            </form>
+
+            </motion.form>
+        </fieldset>
+    );
+};
 
 
+const GoogleMap = () => (
+
+    <div className="w-full gap-6 p-2 mt-6 border border-blue-500 rounded-lg ">
+
+
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50482.83394857099!2d75.31261088478634!3d19.87550342981866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdb9815a369bc63%3A0x712d538b29a2a73e!2sChhatrapati%20Sambhajinagar%20(Aurangabad)%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1725380343536!5m2!1sen!2sin"
+            width="100%"
+            height="450"
+            className="transition-opacity duration-300 rounded-lg opacity-60 hover:opacity-80"
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+        />
+
+
+    </div>
+
+);
+
+const ScrollToTopButton = () => {
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    return (
+        <div className="flex justify-center m-10">
+            <button
+                onClick={scrollToTop}
+                className="flex items-center justify-center p-2 text-white transition bg-blue-500 rounded-full hover:bg-blue-600"
+            >
+                <FaArrowUp className="text-xl animate-bounce" />
+            </button>
         </div>
-    )
-}
+    );
+};
 
-export default Contact
+const ContactPage = () => {
+
+    const { t } = useTranslation()
+
+    // const { title, message, sendMsg } = t("ContactPage")
 
 
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+
+        AOS.init({ duration: 1000 });
+
+        setTimeout(() => {
+            setLoading(false);
+        }, 1000);
+
+    }, []);
+
+    return (
+
+        <div className="flex flex-col items-center justify-center w-full h-full px-1 mt-20">
+
+            <motion.div
+                className="grid w-full max-w-6xl grid-cols-1 gap-6 rounded-lg shadow-lg md:p-6"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+            >
+
+                <div className="flex flex-col items-center justify-center gap-6 p-4 mt-6 rounded-lg text-start md:flex-row md:text-2xl ">
+                    <div className="flex flex-col items-start justify-center p-6 transition-all duration-300 border-blue-500 rounded-lg border-x hover:shadow-lg hover:scale-105">
+                        <h2 className="mb-4 text-2xl font-semibold text-blue-500 md:text-4xl wrap-none">{t("ContactPage.title")} ☎</h2>
+                        <p className="mb-2 text-lg text-blue-500 md:text-xl">
+                            <span className="font-semibold text-gray-500">{t("ContactPage.name")}: </span> Carpenterz E-Comm
+                        </p>
+                        <p className="mb-2 text-lg text-blue-500 md:text-xl">
+                            <span className="font-semibold text-gray-500"> {t("ContactPage.phone")} : </span> (123) 456-7890
+                        </p>
+                        <p className="mb-2 text-lg text-gray-500 md:text-xl">
+                            <span className="font-semibold">{t("ContactPage.email")}: </span>
+                            <a href="#" className="text-blue-500 hover:underline">
+                                contact@carpenters.com
+                            </a>
+                        </p>
+                    </div>
+
+                    <div className="w-full md:w-1/2">
+                        {loading ? <Skeleton className="w-full h-96" /> : <GoogleMap />}
+                    </div>
+                </div>
+
+                <ContactForm />
+
+            </motion.div>
+
+            <ScrollToTopButton />
+        </div>
+    );
+};
+
+export default ContactPage;

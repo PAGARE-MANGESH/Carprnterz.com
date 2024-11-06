@@ -107,13 +107,13 @@ export default function SparklesPreview() {
 
 
         <div
-            className="flex flex-col items-center justify-center w-full h-auto px-6 overflow-hidden bg-center bg-cover rounded-md md:mb-28 md:pt-28 md:flex-row lg:px-12"
+            className="flex flex-col items-center justify-center w-full h-auto px-6 overflow-hidden bg-center bg-cover rounded-md bg-white/30 backdrop-blur-sm md:mb-28 md:pt-28 md:flex-row lg:px-12"
             style={{
                 backgroundImage: `url(${img})`,
             }}
         >
             <div className="flex flex-col items-center w-full px-2 py-2 mt-40 text-center rounded-md md:px-20 md:py-10 md:mt-20 md:items-center md:ml-10 md:text-left bg-black/80 backdrop-blur-sm">
-                <p className="text-lg text-gray-500 md:text-xl lg:text-2xl">
+                <p className="pt-4 text-lg text-gray-500 md:text-xl lg:text-2xl">
                     {t("HomePage.greeting")}
                 </p>
 
@@ -127,6 +127,7 @@ export default function SparklesPreview() {
                     </button>
                 </Link>
             </div>
+
         </div>
 
 

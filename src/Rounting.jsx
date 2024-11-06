@@ -1,97 +1,6 @@
 
-// import React from 'react';
-// import TopNabver from './Components/Navber/TopNavber/HomeNav'
-
-// import { createBrowserRouter, RouterProvider, Outlet, useLocation } from 'react-router-dom';
-// import Sidebar from './Components/Navber/Navber';
-// import Home from './Components/Main/Home/Home';
-// import About from './Components/Main/About/About';
-// import Product from './Components/Main/Product/Product';
-// import Contact from './Components/Main/Contact/Contact';
-
-// import Footer from './Components/Footer/Footer';
-
-// // import { useTranslation } from 'react-i18next';
-
-
-
-
-// const router = createBrowserRouter([
-
-
-
-//   {
-//     path: "/",
-//     element: <Layout />,
-//     children: [
-
-//       {
-//         path: "/",
-//         element: <Home />,
-//       },
-//       {
-//         path: "about",
-//         element: <About />,
-//       },
-//       {
-//         path: "Product",
-//         element: <Product />,
-//       },
-//       {
-//         path: "contact",
-//         element: <Contact />,
-//       },
-//     ],
-//   },
-// ]);
-
-
-
-// function Layout() {
-
-
-
-//   const { pathname } = useLocation();
-//   const location = useLocation(); // You need this for the `Routes` key
-
-//   useEffect(() => {
-//     window.scrollTo(0, 0);
-//   }, [pathname]);
-
-
-
-//   return (
-//     <div className="App">
-//       <Sidebar />
-//       <main>
-//         <TopNabver />
-//         <Outlet />
-//         <Footer />
-//       </main>
-//     </div>
-
-//   );
-// }
-
-
-
-
-// const App = () => {
-//   return (
-//     <RouterProvider router={router} />
-
-//   )
-// };
-
-// export default App;
-
-
-
-
-
-
-
 import React, { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { createBrowserRouter, RouterProvider, Outlet, useLocation } from 'react-router-dom';
 import TopNavbar from './Components/Navber/TopNavber/HomeNav';
 import Sidebar from './Components/Navber/Navber';
@@ -100,10 +9,9 @@ import About from './Components/Main/About/About';
 import Product from './Components/Main/Product/Product';
 import Contact from './Components/Main/Contact/Contact';
 import Footer from './Components/Footer/Footer';
-import PreLoder from './Components/PreLoader'
+import PreLoader from './Components/PreLoader';
 
 
-// Define routes
 const router = createBrowserRouter([
   {
     path: "/",
@@ -118,7 +26,7 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "product", // Ensure route paths are consistently lowercase
+        path: "product",
         element: <Product />,
       },
       {
@@ -129,54 +37,79 @@ const router = createBrowserRouter([
   },
 ]);
 
-// Layout component
-function Layout() {
-  const { pathname } = useLocation(); // Get the current route
-  const [loading, setLoading] = useState(true); // Loading state
 
-  // Scroll to the top when route changes
+function Layout() {
+
+  const location = useLocation();
+  const [loading, setLoading] = useState(true);
+
+
+  const pageVariants = {
+    initial: {
+      opacity: 0,
+      y: 50, // Start from slightly below
+    },
+    animate: {
+      opacity: 1,
+      y: 0, // End at the original vertical position
+      transition: {
+        duration: 0.7,
+        ease: [0.43, 0.13, 0.23, 0.96],
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: -50, // Move up slightly as it exits
+      transition: {
+        duration: 0.5,
+        ease: 'easeInOut',
+      },
+    },
+  };
+
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [pathname]);
-
-
+  }, [location.pathname]);
 
   useEffect(() => {
-
     setLoading(true);
-
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1000);
-
     return () => clearTimeout(timer);
   }, []);
 
-
   return (
-    <>
+    <div className="App">
 
-      <div className="App">
-        {loading ? <PreLoder />
-          :
+      {loading ? <PreLoader />
+        :
+        <AnimatePresence mode="wait">
           <main>
             <Sidebar />
             <TopNavbar />
-            <Outlet /> {/* Renders the matched child route component */}
+
+            <motion.div
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              key={location.pathname} // Ensures AnimatePresence detects route changes
+            >
+              <Outlet />
+            </motion.div>
             <Footer />
           </main>
-        }
-      </div>
+        </AnimatePresence>
 
-
-    </>
+      }
+    </div>
   );
 }
 
-// Main App component
 const App = () => {
   return <RouterProvider router={router} />;
 };
-
 
 export default App;
