@@ -161,7 +161,7 @@
     {
       "id": 1,
       "Product": "लाकडी जेवणाचे टेबल",
-      "img": "../../../src/assets/ProductImges/WDininerTable.jfif",
+      "img": "../../../src/assets/ProductImges/WDininerTable.jpg",
 
       "price": 299.99,
       "category": {
@@ -179,7 +179,7 @@
     {
       "id": 2,
       "Product": "ओक आर्मचेअर",
-      "img": "../../../src/assets/ProductImges/Chir1.jfif",
+      "img": "../../../src/assets/ProductImges/Chir1.jpg",
       "price": 149.99,
       "category": {
         "en": "Chair",
@@ -192,7 +192,7 @@
     {
       "id": 3,
       "Product": "किंग साईज बेड",
-      "img": "../../../src/assets/ProductImges/Bed1.jfif",
+      "img": "../../../src/assets/ProductImges/Bed1.jpg",
 
       "price": 499.99,
       "category": {
@@ -206,7 +206,7 @@
     {
       "id": 4,
       "Product": "कॉफी टेबल",
-      "img": "../../../src/assets/ProductImges/CoffeTble.jfif",
+      "img": "../../../src/assets/ProductImges/CoffeTble.jpg",
 
       "price": 89.99,
       "category": {
@@ -220,7 +220,7 @@
     {
       "id": 5,
       "Product": "बंक बेड",
-      "img": "../../../src/assets/ProductImges/BunkBed1.jfif",
+      "img": "../../../src/assets/ProductImges/BunkBed1.jpg",
       "price": 399.99,
       "category": {
         "en": "Bed",
@@ -228,7 +228,7 @@
       },
       "rating": 4.6,
       "description": "मुलांच्या खोलीसाठी आदर्श मजबूत आणि जागा वाचवणारा बंक बेड.",
-      "images": ["./../../src/assets/ProductImges/BunkBed1.jfif"]
+      "images": ["./../../src/assets/ProductImges/BunkBed1.jpg"]
     }
   ],
 

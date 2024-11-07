@@ -55,7 +55,7 @@
   "ProductPage": {
     "title": "Shopping Cart",
     "total": "total",
-    "remove": "remove",
+    "remove": "remove from cart",
     "add": "Add To Cart",
     "rupeelogo": "$",
     "buy": "Buy",
@@ -94,7 +94,7 @@
     {
       "id": 1,
       "Product": "Wooden Dining Table",
-      "img": "../../../src/assets/ProductImges/WDininerTable.jfif",
+      "img": "../../../src/assets/ProductImges/WDininerTable.jpg",
       "price": 299.99,
       "category": {
         "en": "Table",
@@ -111,7 +111,7 @@
     {
       "id": 2,
       "Product": "Oak Armchair",
-      "img": "../../../src/assets/ProductImges/Chir1.jfif",
+      "img": "../../../src/assets/ProductImges/Chir1.jpg",
       "price": 149.99,
       "category": {
         "en": "Chair",
@@ -124,7 +124,7 @@
     {
       "id": 3,
       "Product": "King Size Bed",
-      "img": "../../../src/assets/ProductImges/Bed1.jfif",
+      "img": "../../../src/assets/ProductImges/Bed1.jpg",
       "price": 499.99,
       "category": {
         "en": "Bed",
@@ -137,7 +137,7 @@
     {
       "id": 4,
       "Product": "Coffee Table",
-      "img": "../../../src/assets/ProductImges/CoffeTble.jfif",
+      "img": "../../../src/assets/ProductImges/CoffeTble.jpg",
       "price": 89.99,
       "category": {
         "en": "Table",
@@ -150,7 +150,7 @@
     {
       "id": 5,
       "Product": "Bunk Bed",
-      "img": "../../../src/assets/ProductImges/BunkBed1.jfif",
+      "img": "../../../src/assets/ProductImges/BunkBed1.jpg",
       "price": 399.99,
       "category": {
         "en": "Bed",
@@ -158,7 +158,7 @@
       },
       "rating": 4.6,
       "description": "A sturdy and space-saving bunk bed ideal for kids' rooms.",
-      "images": ["./../../src/assets/ProductImges/BunkBed1.jfif"]
+      "images": ["./../../src/assets/ProductImges/BunkBed1.jpg"]
     }
   ],
 
