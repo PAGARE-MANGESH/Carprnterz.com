@@ -57,7 +57,10 @@
     "total": "एकूण",
     "remove": "काढा",
     "add": "घ्या",
+    "buy": "विकत घ्या",
     "rupeelogo": "रू",
+    "isProduct": "काहीही खरेदीची नाही !",
+
     "ProductNav": {
       "All": "सर्व",
       "Tables": "टेबल",

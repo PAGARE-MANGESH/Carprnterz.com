@@ -12,8 +12,8 @@ function DemoProduct() {
 
     const { t } = useTranslation();
     const { All, Tables, Chairs, Beds, Shopping } = t("ProductPage.ProductNav");
-    const Items = t('ProductList');
 
+    const Items = t('ProductList');
     const { rupeelogo, total, title, remove, add } = t("ProductPage");
     const [products, setProducts] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('all');
@@ -133,7 +133,7 @@ function DemoProduct() {
 
         <div className='container relative p-4 mx-auto mt-10'>
 
-            <div className="flex flex-wrap items-center justify-center gap-4 mb-6 font-bold text-gray-500">
+            <div className="flex-wrap items-center justify-center gap-4 mt-4 mb-6 font-bold text-gray-500 md:flex">
                 <button
                     className={`px-4 py-2 rounded ${selectedCategory === 'all' ? ' text-blue-500 ' : ''}`}
                     onClick={() => handleCategoryChange('all')}
@@ -230,7 +230,8 @@ function DemoProduct() {
                             &times;
                         </button>
 
-                        {/* Product Image */}
+                        {/* Product Img */}
+
                         <img
                             className="object-cover w-full h-48 mb-4"
                             src={imageError[selectedProduct?.id] ? null : selectedProduct?.img}
@@ -239,6 +240,7 @@ function DemoProduct() {
                         />
 
                         {/* Product Information */}
+
                         <h3 className="mb-2 text-lg font-semibold">{selectedProduct?.Product}</h3>
                         <p className="mb-2 text-gray-600">{selectedProduct?.description}</p>
                         <div className="mb-2 font-bold text-blue-500">
@@ -246,11 +248,13 @@ function DemoProduct() {
                         </div>
 
                         {/* Rating Stars */}
+
                         <div className="flex items-center mb-2">
                             {getStars(selectedProduct?.rating)}
                         </div>
 
                         {/* Add to Cart Button */}
+
                         <button
                             className="px-4 py-2 mt-4 text-white bg-blue-500 rounded"
                             onClick={() => {
@@ -258,7 +262,8 @@ function DemoProduct() {
                                 setSelectedProduct(null);
                             }}
                         >
-                            {shopping.some(p => p.id === selectedProduct?.id) ? 'Remove from Cart' : 'Add to Cart'}
+                            {shopping.some(p => p.id === selectedProduct?.id) ? remove : add}
+
                         </button>
                     </div>
                 </div>
@@ -266,11 +271,11 @@ function DemoProduct() {
 
 
             {selectedCategory === 'shopping' && (
-                <div className="mt-10">
 
+                <div className="mt-10">
                     <h2 className="mb-4 text-2xl font-bold">{title}</h2>
                     {shopping.length === 0 ? (
-                        <p>{t('Product is not  buy yet')}</p>
+                        <p>{t("ProductPage.isProduct")}</p>
                     ) : (
                         <div className="p-4 rounded-lg shadow-md ">
                             <ul>
@@ -321,7 +326,8 @@ function DemoProduct() {
                         <button
                             onClick={() => alert(" Thank You ❤")}
                             className="w-1/2 p-2 duration-300 ease-in-out transform border-4 border-blue-500 pransition-transform otext-blue-500 hover:bg-blue-500 hover:text-white hover:scale-105 active:scale-95 focus:outline-none">
-                            Buy Now
+                            {t("ProductPage.buy")}
+
                         </button>
                     </div>
 

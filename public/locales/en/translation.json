@@ -56,8 +56,10 @@
     "title": "Shopping Cart",
     "total": "total",
     "remove": "remove",
-    "add":"Add To Cart",
+    "add": "Add To Cart",
     "rupeelogo": "$",
+    "buy": "Buy",
+    "isProduct": "Product is not buy yet !",
     "ProductNav": {
       "All": "All",
       "Tables": "Table",
