@@ -162,7 +162,6 @@
       "id": 1,
       "Product": "लाकडी जेवणाचे टेबल",
       "img": "../../../src/assets/ProductImges/WDininerTable.jpg",
-
       "price": 299.99,
       "category": {
         "en": "Table",

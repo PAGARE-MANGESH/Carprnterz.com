@@ -57,7 +57,6 @@ function DemoProduct() {
         }
     };
 
-
     const handleQuantityChange = (productId, newQuantity) => {
         const quantity = Math.min(Math.max(newQuantity, 1), 5);
         setShopping(shopping.map(p => p.id === productId ? { ...p, quantity } : p));
@@ -122,10 +121,8 @@ function DemoProduct() {
         : selectedCategory === 'shopping'
             ? shopping
             : products.filter(product =>
-
                 product.category.en.toLowerCase() === selectedCategory.toLowerCase() ||
                 product.category.mr.toLowerCase() === selectedCategory.toLowerCase()
-
             );
 
 
@@ -215,7 +212,6 @@ function DemoProduct() {
             ) : (
 
                 ""
-                // <p>{t('ProductList.NoProducts')}</p>
             )}
 
 
@@ -333,6 +329,7 @@ function DemoProduct() {
 
                 </div>
             )}
+
 
         </div>
 

@@ -101,12 +101,7 @@
         "mr": "टेबल"
       },
       "rating": 4.5,
-      "description": "A beautifully crafted wooden dining table perfect for family meals.",
-      "images": [
-        "images/wooden_dining_table.jpg",
-        "images/wooden_dining_table_2.jpg",
-        "images/wooden_dining_table_3.jpg"
-      ]
+      "description": "A beautifully crafted wooden dining table perfect for family meals."
     },
     {
       "id": 2,
@@ -118,8 +113,7 @@
         "mr": "खुर्ची"
       },
       "rating": 4.7,
-      "description": "An elegant oak armchair that provides both comfort and style.",
-      "images": ["images/armchair.jpg"]
+      "description": "An elegant oak armchair that provides both comfort and style."
     },
     {
       "id": 3,
@@ -131,8 +125,7 @@
         "mr": "बेड"
       },
       "rating": 4.8,
-      "description": "A spacious king-size bed made from high-quality wood for a luxurious sleep.",
-      "images": ["images/king_size_bed.jpg"]
+      "description": "A spacious king-size bed made from high-quality wood for a luxurious sleep."
     },
     {
       "id": 4,
@@ -144,8 +137,7 @@
         "mr": "टेबल"
       },
       "rating": 4.3,
-      "description": "A sleek and modern coffee table that fits perfectly in any living room.",
-      "images": ["images/coffee_table.jpg"]
+      "description": "A sleek and modern coffee table that fits perfectly in any living room."
     },
     {
       "id": 5,
@@ -157,8 +149,7 @@
         "mr": "बेड"
       },
       "rating": 4.6,
-      "description": "A sturdy and space-saving bunk bed ideal for kids' rooms.",
-      "images": ["./../../src/assets/ProductImges/BunkBed1.jpg"]
+      "description": "A sturdy and space-saving bunk bed ideal for kids' rooms."
     }
   ],
 
