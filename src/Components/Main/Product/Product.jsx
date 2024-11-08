@@ -1,17 +1,19 @@
 
 
-import React, { useState, useEffect } from 'react';
 // import CartLogo from '../../../assets/react.svg';
-import { FaBell } from 'react-icons/fa';
-import 'aos/dist/aos.css';
+
 import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { FaBell } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
+import React, { useState, useEffect } from 'react';
 
 
 function DemoProduct() {
 
     const { t } = useTranslation();
     const { All, Tables, Chairs, Beds, Shopping } = t("ProductPage.ProductNav");
+
 
     const Items = t('ProductList');
     const { rupeelogo, total, title, remove, add } = t("ProductPage");
@@ -20,6 +22,7 @@ function DemoProduct() {
     const [shopping, setShopping] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [showNotification, setShowNotification] = useState(false);
+
 
     const handleCategoryChange = (category) => {
         setSelectedCategory(category);
@@ -40,6 +43,7 @@ function DemoProduct() {
         }
     };
 
+
     const removeFromCart = (productId) => {
         const existingProduct = shopping.find(p => p.id === productId);
         if (existingProduct.quantity > 1) {
@@ -49,6 +53,7 @@ function DemoProduct() {
         }
     };
 
+
     const toggleCart = (product) => {
         if (shopping.some(p => p.id === product.id)) {
             setShopping(shopping.filter(p => p.id !== product.id));
@@ -57,19 +62,23 @@ function DemoProduct() {
         }
     };
 
+
     const handleQuantityChange = (productId, newQuantity) => {
         const quantity = Math.min(Math.max(newQuantity, 1), 5);
         setShopping(shopping.map(p => p.id === productId ? { ...p, quantity } : p));
         setShowNotification(true);
     };
 
+
     const getTotalAmount = () => {
         return shopping.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2);
     };
 
+
     useEffect(() => {
         setProducts(Items);
     }, [Items]);
+
 
     useEffect(() => {
         AOS.init({
@@ -77,6 +86,7 @@ function DemoProduct() {
             easing: 'ease-in-out',
         });
     }, []);
+
 
     const getStars = (rating) => {
         const totalStars = 5;
@@ -98,6 +108,7 @@ function DemoProduct() {
         );
     };
 
+
     const truncateText = (text, maxLength) => {
         if (!text) return '';
         if (text.length > maxLength) {
@@ -106,7 +117,9 @@ function DemoProduct() {
         return text;
     };
 
+
     const [imageError, setImageError] = useState({});
+
 
     const handleImageError = (id) => {
         setImageError((prev) => ({
@@ -116,14 +129,27 @@ function DemoProduct() {
     };
 
 
+    // const filteredProducts = selectedCategory === 'all'
+    //     ? products
+    //     : selectedCategory === 'shopping'
+    //         ? shopping
+    //         : products.filter(product =>
+    //             product.category.en.toLowerCase() === selectedCategory.toLowerCase() ||
+    //             product.category.mr.toLowerCase() === selectedCategory.toLowerCase()
+    //         );
+
+
+    const isCategoryMatch = (product, selectedCategory) => {
+        return product.category.en.toLowerCase() === selectedCategory.toLowerCase() ||
+            product.category.mr.toLowerCase() === selectedCategory.toLowerCase();
+    };
+
     const filteredProducts = selectedCategory === 'all'
         ? products
         : selectedCategory === 'shopping'
             ? shopping
-            : products.filter(product =>
-                product.category.en.toLowerCase() === selectedCategory.toLowerCase() ||
-                product.category.mr.toLowerCase() === selectedCategory.toLowerCase()
-            );
+            : products.filter(product => isCategoryMatch(product, selectedCategory));
+
 
 
     return (
