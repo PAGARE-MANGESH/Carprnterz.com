@@ -194,6 +194,7 @@ function DemoProduct() {
 
 
             {filteredProducts.length > 0 ? (
+
                 <div className="grid grid-cols-1 gap-4 cursor-pointer sm:grid-cols-2 md:grid-cols-3">
 
                     {filteredProducts.map(product => (
@@ -205,7 +206,7 @@ function DemoProduct() {
                         >
                             <img
                                 className="object-cover w-full h-48 bg-gray-800"
-                                src={imageError[product.id] ? '' : product.img}
+                                src={imageError[product.id] ? product[Items.img] : product.img}
                                 // src={product.img}
 
                                 alt={product.Product}

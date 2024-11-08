@@ -1,4 +1,3 @@
-
 {
   "Navber": {
     "home": "Home",
@@ -95,7 +94,7 @@
     {
       "id": 1,
       "Product": "Wooden Dining Table",
-      "img": "../../../src/assets/ProductImges/WDininerTable.jpg",
+      "img": "../ProductImges/WDininerTable.jpg",
       "price": 299.99,
       "category": {
         "en": "Table",
@@ -104,10 +103,11 @@
       "rating": 4.5,
       "description": "A beautifully crafted wooden dining table perfect for family meals."
     },
+
     {
       "id": 2,
       "Product": "Oak Armchair",
-      "img": "../../../src/assets/ProductImges/Chir1.jpg",
+      "img": "../ProductImges/Chir1.jpg",
       "price": 149.99,
       "category": {
         "en": "Chair",
@@ -116,10 +116,11 @@
       "rating": 4.7,
       "description": "An elegant oak armchair that provides both comfort and style."
     },
+
     {
       "id": 3,
       "Product": "King Size Bed",
-      "img": "../../../src/assets/ProductImges/Bed1.jpg",
+      "img": "../ProductImges/Bed1.jpg",
       "price": 499.99,
       "category": {
         "en": "Bed",
@@ -128,10 +129,11 @@
       "rating": 4.8,
       "description": "A spacious king-size bed made from high-quality wood for a luxurious sleep."
     },
+
     {
       "id": 4,
       "Product": "Coffee Table",
-      "img": "../../../src/assets/ProductImges/CoffeTble.jpg",
+      "img": "../ProductImges/CoffeTble.jpg",
       "price": 89.99,
       "category": {
         "en": "Table",
@@ -140,10 +142,11 @@
       "rating": 4.3,
       "description": "A sleek and modern coffee table that fits perfectly in any living room."
     },
+
     {
       "id": 5,
       "Product": "Bunk Bed",
-      "img": "../../../src/assets/ProductImges/BunkBed1.jpg",
+      "img": "../ProductImges/BunkBed1.jpg",
       "price": 399.99,
       "category": {
         "en": "Bed",
