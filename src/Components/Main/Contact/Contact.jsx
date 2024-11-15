@@ -18,209 +18,150 @@ import 'aos/dist/aos.css';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 
 const ContactForm = () => {
 
 
-    const [email, setEmail] = useState('');
     const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [address, setAddress] = useState('');
+    const [message, setMessage] = useState('');
 
-    const { t } = useTranslation()
+    let { t } = useTranslation()
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const form = e.target;
-        const formData = new FormData(form);
-
-        fetch(form.action, {
-            method: form.method,
-            body: formData,
-            headers: {
-                Accept: 'application/json',
-            },
-        })
-            .then((response) => {
-                if (response.ok) {
-                    // alert('Message sent successfully, Thank You ❤ !');
-
-                    setName('');
-                    setPhone('');
-                    setEmail('');
-                    setAddress('');
-
-                    e.target.message.value = '';
-                } else {
-                    alert('Failed to send message');
-                }
-            })
-            .catch((error) => console.error('Form submission error:', error));
+        // const { t } = useTranslation()
+        setName('')
+        setEmail('')
+        setPhone('')
+        setAddress('')
+        setMessage('')
+        setTimeout(() => {
+            alert(`${t('ContactPage.submitbtn')}\n${t('ContactPage.submitMessage')}`);
+        }, 2000);
     };
 
-    const handleClick = () => {
-        let timerInterval;
-        Swal.fire({
-            title: "Thank You ❤",
-            html: "I will send in <b></b> milliseconds.",
-            timer: 2000,
-            timerProgressBar: true,
-            didOpen: () => {
-                Swal.showLoading();
-                const timer = Swal.getPopup().querySelector("b");
-                timerInterval = setInterval(() => {
-                    timer.textContent = `${Swal.getTimerLeft()}`;
-                }, 100);
-            },
-            willClose: () => {
-                setName('');
-                setPhone('');
-                setEmail('');
-                setAddress('');
-                clearInterval(timerInterval);
-            }
-        }).then((result) => {
-            if (result.dismiss === Swal.DismissReason.timer) {
-                console.log("I was closed by the timer");
-            }
-        });
-    };
+
 
     return (
         <fieldset className="p-6 mt-8 transition-all duration-300 ease-in-out transform border-2 border-blue-500 rounded-lg hover:border-blue-700">
-            <legend className="px-6 mb-6 text-lg font-semibold text-blue-500">
+            <legend className="px-6 mx-auto mb-8 font-semibold font-bold text-center text-blue-500 md:text-2xl">
                 {t("ContactPage.title")}  👩‍💻
             </legend>
             <motion.form
                 onSubmit={handleSubmit}
                 className="grid grid-cols-1 gap-8 md:grid-cols-2"
-                action="https://formspree.io/f/xovabjrp"
-                method="POST"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6 }}
             >
                 <motion.div className="relative flex-1" whileHover={{ scale: 1.03 }}>
+                    <label htmlFor="username" className='my-2 text-blue-500'>
+                        {t("ContactPage.name")}
+                    </label>
+
                     <input
                         type="text"
                         id="username"
                         name="username"
                         required
-                        placeholder=" "
+                        placeholder={t("ContactPage.name")}
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="w-full p-4 text-blue-500 bg-transparent border-b border-blue-500 rounded-md peer focus:outline-none focus:ring-2 focus:ring-blue-300"
+                        className="w-full p-2 text-blue-500 bg-transparent border border-blue-500 rounded-md peer focus:outline-none focus:ring-2 focus:ring-blue-300"
                     />
-                    <label
-                        htmlFor="username"
-                        className="absolute text-blue-500 transition-all duration-300 origin-left transform scale-100 -translate-y-6 pointer-events-none left-3 top-4 peer-placeholder-shown:translate-y-3 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75"
-                    >
-                        {t("ContactPage.name")} 😇
-                    </label>
+
                 </motion.div>
 
                 <motion.div className="relative flex-1" whileHover={{ scale: 1.03 }}>
+                    <label htmlFor="phone" className='my-2 text-blue-500'>
+                        {t("ContactPage.phone")}
+                    </label>
+
                     <input
                         type="tel"
                         id="phone"
                         required
                         name="phone"
-                        placeholder=" "
+                        placeholder={t("ContactPage.phone")}
                         maxLength={12}
                         value={phone}
                         onChange={(e) => {
                             const onlyNums = e.target.value.replace(/[^0-9]/g, '');
                             setPhone(onlyNums);
                         }}
-                        className="w-full p-4 text-blue-500 bg-transparent border-b border-blue-500 rounded-md peer focus:outline-none focus:ring-2 focus:ring-blue-300"
+                        className="w-full p-2 text-blue-500 bg-transparent border border-blue-500 rounded-md peer focus:outline-none focus:ring-2 focus:ring-blue-300"
                     />
-                    <label
-                        htmlFor="phone"
-                        className="absolute text-blue-500 transition-all duration-300 origin-left transform scale-100 -translate-y-6 pointer-events-none left-3 top-4 peer-placeholder-shown:translate-y-3 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75"
-                    >
-                        {t("ContactPage.phone")} 📞
-                    </label>
+
                 </motion.div>
 
                 <motion.div className="relative flex-1 mt-4" whileHover={{ scale: 1.03 }}>
+                    <label htmlFor="email" className='my-2 text-blue-500'>
+                        {t("ContactPage.email")}
+                    </label>
+
                     <input
                         type="email"
                         id="email"
                         name="email"
                         required
-                        placeholder=" "
+                        placeholder={t("ContactPage.email")}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full p-4 text-blue-500 bg-transparent border-b border-blue-500 rounded-md peer focus:outline-none focus:ring-2 focus:ring-blue-300"
+                        className="w-full p-2 text-blue-500 bg-transparent border border-blue-500 rounded-md peer focus:outline-none focus:ring-2 focus:ring-blue-300"
                     />
-                    <label
-                        htmlFor="email"
-                        className="absolute text-blue-500 transition-all duration-300 origin-left transform scale-100 -translate-y-6 pointer-events-none left-3 top-4 peer-placeholder-shown:translate-y-3 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75"
-                    >
-                        {t("ContactPage.email")} 😇
 
-                    </label>
                 </motion.div>
 
                 <motion.div className="relative flex-1 mt-4" whileHover={{ scale: 1.03 }}>
+
+                    <label htmlFor="address" className='my-2 text-blue-500'>
+                        {t("ContactPage.address")}
+                    </label>
+
                     <input
                         type="text"
                         id="address"
                         name="address"
                         required
-                        placeholder=" "
+                        placeholder={t("ContactPage.address")}
                         value={address}
                         onChange={(e) => setAddress(e.target.value)}
-                        className="w-full p-4 text-blue-500 bg-transparent border-b border-blue-500 rounded-md peer focus:outline-none focus:ring-2 focus:ring-blue-300"
+                        className="w-full p-2 text-blue-500 bg-transparent border border-blue-500 rounded-md peer focus:outline-none focus:ring-2 focus:ring-blue-300"
                     />
-                    <label
-                        htmlFor="address"
-                        className="absolute text-blue-500 transition-all duration-300 origin-left transform scale-100 -translate-y-6 pointer-events-none left-3 top-4 peer-placeholder-shown:translate-y-3 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75"
-                    >
-                        {t("ContactPage.address")} 🏠
-                    </label>
+
                 </motion.div>
 
                 <motion.div className="relative col-span-1 mt-6 md:col-span-2" whileHover={{ scale: 1.03 }}>
+                    <label htmlFor="message" className='my-2 text-blue-500'>
+                        {t("ContactPage.message")}
+                    </label>
+
                     <textarea
                         required
-                        className="w-full p-4 text-blue-500 bg-transparent border-b border-blue-500 rounded-md peer focus:outline-none focus:ring-2 focus:ring-blue-300"
+                        className="w-full p-2 text-blue-500 bg-transparent border border-blue-500 rounded-md peer focus:outline-none focus:ring-2 focus:ring-blue-300"
                         rows="4"
                         id="message"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
                         maxLength={400}
                         name="message"
-                        placeholder=" "
+                        placeholder={t("ContactPage.message")}
                     />
-                    <label
-                        htmlFor="message"
-                        className="absolute text-blue-500 transition-all duration-300 origin-left transform scale-100 -translate-y-6 pointer-events-none left-3 top-4 peer-placeholder-shown:translate-y-3 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75"
-                    >
-                        {t("ContactPage.message")} 📃
-                    </label>
                 </motion.div>
 
-                {/* <div className="flex justify-center col-span-1 mt-6 md:col-span-2">
+
+                <div className="flex justify-center col-span-1 mt-6 md:col-span-2">
                     <motion.button
                         type="submit"
                         className="px-6 py-3 text-blue-500 border border-blue-500 rounded-lg hover:text-white hover:bg-blue-500"
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.3 }}
-                    >
-                        Send Message
-                    </motion.button>
-                </div> */}
-
-
-
-                <div className="flex justify-center col-span-1 mt-6 md:col-span-2">
-                    <motion.button
-                        type="submit"  // Change to button instead of submit to prevent form submission
-                        className="px-6 py-3 text-blue-500 border border-blue-500 rounded-lg hover:text-white hover:bg-blue-500"
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.3 }}
-                        onClick={handleClick}
+                    // onClick={handleSubmit}
                     >
                         {t("ContactPage.sendMsg")}
                     </motion.button>
@@ -290,7 +231,7 @@ const ContactPage = () => {
 
     return (
 
-        <div className="flex flex-col items-center justify-center w-full h-full px-1 mt-20">
+        <div className="flex flex-col items-center justify-center w-full h-full px-1 mt-20 ">
 
             <motion.div
                 className="grid w-full max-w-6xl grid-cols-1 gap-6 rounded-lg shadow-lg md:p-6"
@@ -299,24 +240,9 @@ const ContactPage = () => {
                 transition={{ duration: 0.5 }}
             >
 
-                <div className="flex flex-col items-center justify-center gap-6 p-4 mt-6 rounded-lg text-start md:flex-row md:text-2xl ">
-                    <div className="flex flex-col items-start justify-center p-6 transition-all duration-300 border-blue-500 rounded-lg border-x hover:shadow-lg hover:scale-105">
-                        <h2 className="mb-4 text-2xl font-semibold text-blue-500 md:text-4xl wrap-none">{t("ContactPage.title")} ☎</h2>
-                        <p className="mb-2 text-lg text-blue-500 md:text-xl">
-                            <span className="font-semibold text-gray-500">{t("ContactPage.name")}: </span> Carpenterz E-Comm
-                        </p>
-                        <p className="mb-2 text-lg text-blue-500 md:text-xl">
-                            <span className="font-semibold text-gray-500"> {t("ContactPage.phone")} : </span> (123) 456-7890
-                        </p>
-                        <p className="mb-2 text-lg text-gray-500 md:text-xl">
-                            <span className="font-semibold">{t("ContactPage.email")}: </span>
-                            <a href="#" className="text-blue-500 hover:underline">
-                                contact@carpenters.com
-                            </a>
-                        </p>
-                    </div>
+                <div className="flex flex-col items-center justify-center gap-6 p-2 mt-6 rounded-lg text-start md:flex-row md:text-2xl ">
 
-                    <div className="w-full md:w-1/2">
+                    <div className="w-full md:w-1/1">
                         {loading ? <Skeleton className="w-full h-96" /> : <GoogleMap />}
                     </div>
                 </div>

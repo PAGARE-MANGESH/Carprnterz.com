@@ -24,6 +24,17 @@ function DemoProduct() {
     const [showNotification, setShowNotification] = useState(false);
 
 
+
+
+    function handleSubmit() {
+        setTimeout(() => {
+            setShopping([])
+            alert(`${t('ProductPage.submitbtn')}\n${t('ProductPage.submitMessage')}`);
+        }, 2000);
+
+    }
+
+
     const handleCategoryChange = (category) => {
         setSelectedCategory(category);
         if (category === 'shopping') {
@@ -129,14 +140,6 @@ function DemoProduct() {
     };
 
 
-    // const filteredProducts = selectedCategory === 'all'
-    //     ? products
-    //     : selectedCategory === 'shopping'
-    //         ? shopping
-    //         : products.filter(product =>
-    //             product.category.en.toLowerCase() === selectedCategory.toLowerCase() ||
-    //             product.category.mr.toLowerCase() === selectedCategory.toLowerCase()
-    //         );
 
 
     const isCategoryMatch = (product, selectedCategory) => {
@@ -152,11 +155,12 @@ function DemoProduct() {
 
 
 
+
     return (
 
         <div className='container relative p-4 mx-auto mt-10'>
 
-            <div className="flex-wrap items-center justify-center gap-4 mt-4 mb-6 font-bold text-gray-500 md:flex">
+            <div className="flex-wrap items-center justify-center gap-4 mt-4 mb-6 font-bold text-center text-gray-500 md:flex">
                 <button
                     className={`px-4 py-2 rounded ${selectedCategory === 'all' ? ' text-blue-500 ' : ''}`}
                     onClick={() => handleCategoryChange('all')}
@@ -346,12 +350,21 @@ function DemoProduct() {
                     )}
 
                     <div className="flex justify-center mt-10">
-                        <button
-                            onClick={() => alert(" Thank You ❤")}
+                        {/* <button
+                            type='submit'
+                            onSubmit={() => handleSubmit}
                             className="w-1/2 p-2 duration-300 ease-in-out transform border-4 border-blue-500 pransition-transform otext-blue-500 hover:bg-blue-500 hover:text-white hover:scale-105 active:scale-95 focus:outline-none">
                             {t("ProductPage.buy")}
 
+                        </button> */}
+
+                        <button
+                            type="button" // Use 'submit' if within a form
+                            onClick={handleSubmit} // Correctly call the function
+                            className="w-1/2 p-2 text-blue-500 duration-300 ease-in-out transform border-4 border-blue-500 hover:bg-blue-500 hover:text-white hover:scale-105 active:scale-95 focus:outline-none">
+                            {t("ProductPage.buy")}
                         </button>
+
                     </div>
 
                 </div>
@@ -361,6 +374,7 @@ function DemoProduct() {
         </div>
 
     );
+
 }
 
 export default DemoProduct;

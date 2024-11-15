@@ -49,7 +49,9 @@
     "phone": "फोन नंबर",
     "message": "संदेश",
     "address": "पत्ता",
-    "sendMsg": "संदेश पाठवा"
+    "sendMsg": "संदेश पाठवा",
+    "submitbtn": "धन्यवाद ❤",
+    "submitMessage": "आपली माहिती यशस्वीरित्या पाठविली गेली आहे!"
   },
 
   "ProductPage": {
@@ -60,7 +62,8 @@
     "buy": "विकत घ्या",
     "rupeelogo": "रू",
     "isProduct": "काहीही खरेदीची नाही !",
-
+    "submitbtn": "धन्यवाद ❤",
+    "submitMessage": "क्षमस्व, आम्ही अद्याप बॅकएंड समाकलित केलेले नाही.",
     "ProductNav": {
       "All": "सर्व",
       "Tables": "टेबल",

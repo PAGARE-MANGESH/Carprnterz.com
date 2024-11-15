@@ -49,7 +49,10 @@
     "phone": "Phone No",
     "message": "Message",
     "address": "Address",
-    "sendMsg": "Send Message"
+    "sendMsg": "Send Message",
+    "submitbtn": "Thank You ❤",
+
+    "submitMessage": "Your information has been successfully sent!"
   },
 
   "ProductPage": {
@@ -60,6 +63,8 @@
     "rupeelogo": "$",
     "buy": "Buy",
     "isProduct": "Product is not buy yet !",
+    "submitbtn": "Thank You ❤",
+    "submitMessage": "Sorry, we have not integrated the backend yet.",
     "ProductNav": {
       "All": "All",
       "Tables": "Table",
