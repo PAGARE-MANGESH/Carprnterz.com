@@ -6,17 +6,16 @@ import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg
 const Footer = () => {
 
     const { t } = useTranslation()
-    const { titles, footerDiscription, input } = t("FooterPage");
-    const { about, contact, services, newsletter, follow } = titles;
-    const { aboutDisc, contactDisc, servicesDisc, newsletter: newsletterDesc, follow: followDesc } = footerDiscription;
-    const { placeHolder, btn } = input;
+    const { titles, footerDiscription, } = t("FooterPage");
+    const { about, contact, services, follow } = titles;
+    const { aboutDisc, contactDisc, servicesDisc, follow: followDesc } = footerDiscription;
 
 
     return (
 
         <footer className="px-6 py-20 pb-40 mt-24 text-gray-500 bg-gray-900 dark:bg-gray-800">
 
-            <div className="container grid grid-cols-1 gap-10 mx-auto text-center md:gap-10 md:grid-cols-3 lg:grid-cols-5 md:text-left">
+            <div className="container grid grid-cols-1 gap-10 mx-auto text-center md:gap-10 md:grid-cols-3 lg:grid-cols-4 md:text-left">
                 <div className="flex flex-col items-center md:items-center">
                     <h3 className="mb-6 text-2xl font-bold text-blue-500">{about}</h3>
                     <p className="text-md">{aboutDisc}</p>
@@ -29,7 +28,7 @@ const Footer = () => {
                     <h3 className="mb-6 text-2xl font-bold text-blue-500">{services}</h3>
                     <p> {servicesDisc} </p>
                 </div>
-                <div className="flex flex-col items-center md:items-center">
+                {/* <div className="flex flex-col items-center md:items-center">
                     <h3 className="mb-6 text-2xl font-bold text-blue-500">{newsletter}</h3>
                     <p className="mb-4 text-md">{newsletterDesc}</p>
                     <form className="w-full max-w-sm">
@@ -40,12 +39,13 @@ const Footer = () => {
                         />
                         <button
                             type="submit"
+                            onClick={handelSub}
                             className="w-full py-2 mt-2 text-white transition duration-300 bg-gray-700 rounded-md hover:bg-gray-600"
                         >
                             {btn}
                         </button>
                     </form>
-                </div>
+                </div> */}
 
                 <div className="flex flex-col items-center md:items-center">
                     <h3 className="mb-6 text-2xl font-bold text-blue-500">{follow}</h3>

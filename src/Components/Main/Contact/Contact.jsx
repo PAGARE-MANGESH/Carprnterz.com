@@ -1,20 +1,11 @@
 
-
-
-
-
-
-
-
-
-
-
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaArrowUp } from 'react-icons/fa';
 import AOS from 'aos';
 import { useTranslation } from 'react-i18next';
 import 'aos/dist/aos.css';
+
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
@@ -212,10 +203,6 @@ const ScrollToTopButton = () => {
 
 const ContactPage = () => {
 
-    const { t } = useTranslation()
-
-    // const { title, message, sendMsg } = t("ContactPage")
-
 
     const [loading, setLoading] = useState(true);
 
@@ -243,7 +230,16 @@ const ContactPage = () => {
                 <div className="flex flex-col items-center justify-center gap-6 p-2 mt-6 rounded-lg text-start md:flex-row md:text-2xl ">
 
                     <div className="w-full md:w-1/1">
-                        {loading ? <Skeleton className="w-full h-96" /> : <GoogleMap />}
+                        {loading ? (
+                            <Skeleton
+                                className="w-full h-96"
+                                baseColor="#333333" // Light black base color
+                                highlightColor="#4a4a4a" // Slightly lighter shade of light black
+                            />
+                        ) : (
+                            <GoogleMap />
+                        )}
+
                     </div>
                 </div>
 

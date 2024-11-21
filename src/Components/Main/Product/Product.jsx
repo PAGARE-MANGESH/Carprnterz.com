@@ -8,6 +8,8 @@ import { FaBell } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import React, { useState, useEffect } from 'react';
 
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 function DemoProduct() {
 
@@ -154,7 +156,11 @@ function DemoProduct() {
             : products.filter(product => isCategoryMatch(product, selectedCategory));
 
 
+    setTimeout(() => {
+        setLoading(false);
+    }, 1000);
 
+    const [loading, setLoading] = useState(true);
 
     return (
 
@@ -199,23 +205,31 @@ function DemoProduct() {
 
             {filteredProducts.length > 0 ? (
 
+
                 <div className="grid grid-cols-1 gap-4 cursor-pointer sm:grid-cols-2 md:grid-cols-3">
 
                     {filteredProducts.map(product => (
+
                         <div
                             key={product.id}
                             className="overflow-hidden border shadow-md roundedlg rounded-2xl"
                             data-aos="fade-up"
                             onClick={() => setSelectedProduct(product)}
                         >
-                            <img
-                                className="object-cover w-full h-48 bg-gray-800"
-                                src={imageError[product.id] ? product[Items.img] : product.img}
-                                // src={product.img}
+                            {loading ? (
+                                <Skeleton
+                                    className="w-full h-48"
+                                    baseColor="#333333"
+                                    highlightColor="#4a4a4a"
+                                />) : (
+                                <img
+                                    className="object-cover w-full h-48 bg-gray-800"
+                                    src={imageError[product.id] ? product[Items.img] : product.img}
+                                    alt={product.Product}
+                                    onError={() => handleImageError(product.id)}
+                                />
+                            )}
 
-                                alt={product.Product}
-                                onError={() => handleImageError(product.id)}
-                            />
                             <div className="p-4">
                                 <h3 className="text-lg font-semibold text-gray-500">{product.Product}</h3>
                                 <p className="text-gray-600">{truncateText(product.description, 50)}</p>
@@ -350,16 +364,10 @@ function DemoProduct() {
                     )}
 
                     <div className="flex justify-center mt-10">
-                        {/* <button
-                            type='submit'
-                            onSubmit={() => handleSubmit}
-                            className="w-1/2 p-2 duration-300 ease-in-out transform border-4 border-blue-500 pransition-transform otext-blue-500 hover:bg-blue-500 hover:text-white hover:scale-105 active:scale-95 focus:outline-none">
-                            {t("ProductPage.buy")}
 
-                        </button> */}
 
                         <button
-                            type="button" // Use 'submit' if within a form
+                            type="button"
                             onClick={handleSubmit} // Correctly call the function
                             className="w-1/2 p-2 text-blue-500 duration-300 ease-in-out transform border-4 border-blue-500 hover:bg-blue-500 hover:text-white hover:scale-105 active:scale-95 focus:outline-none">
                             {t("ProductPage.buy")}
