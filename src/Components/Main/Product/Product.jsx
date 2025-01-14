@@ -102,27 +102,35 @@ function DemoProduct() {
 
 
     const getStars = (rating) => {
+
         const totalStars = 5;
+
         const filledStars = Math.round(rating);
+
         const emptyStars = totalStars - filledStars;
+
         return (
             <>
+
                 {Array(filledStars).fill().map((_, i) => (
                     <svg key={i} className="inline w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.973a1 1 0 00.95.69h4.178c.969 0 1.371 1.24.588 1.81l-3.39 2.46a1 1 0 00-.364 1.118l1.287 3.973c.3.921-.755 1.688-1.539 1.118l-3.39-2.46a1 1 0 00-1.175 0l-3.39 2.46c-.784.57-1.838-.197-1.539-1.118l1.287-3.973a1 1 0 00-.364-1.118L2.236 9.4c-.783-.57-.38-1.81.588-1.81h4.178a1 1 0 00.95-.69l1.286-3.973z" />
                     </svg>
                 ))}
+
                 {Array(emptyStars).fill().map((_, i) => (
                     <svg key={i + filledStars} className="inline w-4 h-4 text-gray-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.973a1 1 0 00.95.69h4.178c.969 0 1.371 1.24.588 1.81l-3.39 2.46a1 1 0 00-.364 1.118l1.287 3.973c.3.921-.755 1.688-1.539 1.118l-3.39-2.46a1 1 0 00-1.175 0l-3.39-2.46c-.784.57-1.838-.197-1.539-1.118l1.287-3.973a1 1 0 00-.364-1.118L2.236 9.4c-.783-.57-.38-1.81.588-1.81h4.178a1 1 0 00.95-.69l1.286-3.973z" />
                     </svg>
                 ))}
+
             </>
         );
     };
 
 
     const truncateText = (text, maxLength) => {
+
         if (!text) return '';
         if (text.length > maxLength) {
             return text.substring(0, maxLength) + '...';
@@ -143,11 +151,11 @@ function DemoProduct() {
 
 
 
-
     const isCategoryMatch = (product, selectedCategory) => {
         return product.category.en.toLowerCase() === selectedCategory.toLowerCase() ||
             product.category.mr.toLowerCase() === selectedCategory.toLowerCase();
     };
+
 
     const filteredProducts = selectedCategory === 'all'
         ? products
@@ -159,6 +167,7 @@ function DemoProduct() {
     setTimeout(() => {
         setLoading(false);
     }, 1000);
+
 
     const [loading, setLoading] = useState(true);
 
@@ -205,7 +214,6 @@ function DemoProduct() {
 
             {filteredProducts.length > 0 ? (
 
-
                 <div className="grid grid-cols-1 gap-4 cursor-pointer sm:grid-cols-2 md:grid-cols-3">
 
                     {filteredProducts.map(product => (
@@ -251,9 +259,11 @@ function DemoProduct() {
                                     {shopping.some(p => p.id === product.id) ? remove : add}
                                 </button>
                             </div>
+
                         </div>
                     ))}
                 </div>
+
             ) : (
 
                 ""

@@ -9,10 +9,31 @@ import 'aos/dist/aos.css';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-// import Swal from 'sweetalert2';
+
+import { toast, ToastContainer, Bounce } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
+function notify(msg) {
+
+    toast(msg, {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    });
+
+}
+
 
 const ContactForm = () => {
 
+    let { t } = useTranslation()
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -20,19 +41,20 @@ const ContactForm = () => {
     const [address, setAddress] = useState('');
     const [message, setMessage] = useState('');
 
-    let { t } = useTranslation()
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // const { t } = useTranslation()
-        setName('')
-        setEmail('')
-        setPhone('')
-        setAddress('')
-        setMessage('')
+
+
         setTimeout(() => {
-            alert(`${t('ContactPage.submitbtn')}\n${t('ContactPage.submitMessage')}`);
+
+            notify(`${t('ContactPage.submitbtn')}\n ${t('ContactPage.submitMessage')}`)
+            setName('')
+            setEmail('')
+            setPhone('')
+            setAddress('')
+            setMessage('')
         }, 2000);
     };
 
@@ -40,7 +62,7 @@ const ContactForm = () => {
 
     return (
         <fieldset className="p-6 mt-8 transition-all duration-300 ease-in-out transform border-2 border-blue-500 rounded-lg hover:border-blue-700">
-            <legend className="px-6 mx-auto mb-8 font-semibold font-bold text-center text-blue-500 md:text-2xl">
+            <legend className="px-6 mx-auto mb-8 font-semibold text-center text-blue-500 md:text-2xl">
                 {t("ContactPage.title")}  👩‍💻
             </legend>
             <motion.form
@@ -152,7 +174,6 @@ const ContactForm = () => {
                         className="px-6 py-3 text-blue-500 border border-blue-500 rounded-lg hover:text-white hover:bg-blue-500"
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.3 }}
-                    // onClick={handleSubmit}
                     >
                         {t("ContactPage.sendMsg")}
                     </motion.button>
@@ -219,6 +240,10 @@ const ContactPage = () => {
     return (
 
         <div className="flex flex-col items-center justify-center w-full h-full px-1 mt-20 ">
+
+            <span>
+                <ToastContainer />
+            </span>
 
             <motion.div
                 className="grid w-full max-w-6xl grid-cols-1 gap-6 rounded-lg shadow-lg md:p-6"
