@@ -16,7 +16,6 @@ function DemoProduct() {
     const { t } = useTranslation();
     const { All, Tables, Chairs, Beds, Shopping } = t("ProductPage.ProductNav");
 
-
     const Items = t('ProductList');
     const { rupeelogo, total, title, remove, add } = t("ProductPage");
     const [products, setProducts] = useState([]);
@@ -24,8 +23,6 @@ function DemoProduct() {
     const [shopping, setShopping] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [showNotification, setShowNotification] = useState(false);
-
-
 
 
     function handleSubmit() {
@@ -88,10 +85,15 @@ function DemoProduct() {
     };
 
 
-    useEffect(() => {
-        setProducts(Items);
-    }, [Items]);
 
+
+    useEffect(() => {
+        setLoading(false);
+
+        if (products.length === 0) {
+            setProducts(Items);
+        }
+    }, [Items]);
 
     useEffect(() => {
         AOS.init({
@@ -396,5 +398,10 @@ function DemoProduct() {
 }
 
 export default DemoProduct;
+
+
+
+
+
 
 
